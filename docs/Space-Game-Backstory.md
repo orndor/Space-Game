@@ -41,7 +41,7 @@ The goal of the game is to obtain enough goods or money which allow our characte
 | ------ | Gold | Water | Liquid Soap | Styrofoam | Oatmeal Pies | Light Bulbs |
 |-----|-------|-------------|-----------|---------------|-------------|-----|
 Earth| 100 | 100 | 5 | 5 | 50 | 20 |
-AC 1| 50 | 5 | 100 | 20 | 100 | 5 |
+PC 1| 50 | 5 | 100 | 20 | 100 | 5 |
 Bernard's B | 5 | 50 | 20 | 100 | 5 | 100 |
 
 After the user selects their character, they are at the space port on their home planet, where they can buy their initial inventory of goods (the ship will come with some random goods already loaded on the ship to start).  Once they buy the goods they want, they can then choose to fly to another planet.  During space travel, the player ages.  Once the player lands on the destination planet, they buy/trade/sell goods, and then continue the process of flying to other planets and selling/buying/trading goods.  Once the player has enough money to buy the Diamond-1 spaceship (which he can purchase at any planets spaceport) he wins the game.  If the player reaches 60 years old before purchasing the Diamond-1 spaceship, he dies, and losses the game.
