@@ -32,9 +32,7 @@ The goal of this project is to build a space-trading game with the following cha
 * Intelligence (paid or based on affinity with planets) or Scuttlebutt (overheard or based on affinity with NPCs), particularly regarding cost of items in other locations
 * Additional means of acquiring goods
 * Warp Equation
-* Given Warp speed (W) with non-inclusive bounds of 0 and 10, velocity in multiples of the speed of light = W(10/3)  + (10 − W)(-11/3).
-
-Thus, if you want to travel to a location 1 light year away in one day, you need a warp factor which equates to a velocity of 365.25 times the speed of light.
+* Given Warp speed (W) with non-inclusive bounds of 0 and 10, velocity in multiples of the speed of light = W(10/3)  + (10 − W)(-11/3).  Thus, if you want to travel to a location 1 light year away in one day, you need a warp factor which equates to a velocity of 365.25 times the speed of light.
 
 ### Directory Structure
 
