@@ -12,11 +12,11 @@ The space game follows the story of a young, 18-year old man (either an ALF, Cyl
 
 ## Speed of Each Ship
 
-| Ship |    | Warp Factor |
-|------|----|-------|
-|Earth Ship|----|2.000  |
-|Proxima Centauri 1|----|1.317  |
-|Bernard's Star B Ship|----|1.621  |
+| Ship | Warp Factor |
+|------|-------|
+|Earth Ship|2.000  |
+|Proxima Centauri 1|1.317  |
+|Bernard's Star B Ship|1.621  |
 
 ## How Much Each Ship Can Hold (in units)
 
@@ -43,5 +43,7 @@ The goal of the game is to obtain enough goods or money which allow our characte
 Earth| 100 | 100 | 5 | 5 | 50 | 20 |
 PC 1| 50 | 5 | 100 | 20 | 100 | 5 |
 Bernard's B | 5 | 50 | 20 | 100 | 5 | 100 |
+
+## Game Play
 
 After the user selects their character, they are at the space port on their home planet, where they can buy their initial inventory of goods (the ship will come with some random goods already loaded on the ship to start).  Once they buy the goods they want, they can then choose to fly to another planet.  During space travel, the player ages.  Once the player lands on the destination planet, they buy/trade/sell goods, and then continue the process of flying to other planets and selling/buying/trading goods.  Once the player has enough money to buy the Diamond-1 spaceship (which he can purchase at any planets spaceport) he wins the game.  If the player reaches 60 years old before purchasing the Diamond-1 spaceship, he dies, and losses the game.
