@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Space_Game
 {
-    interface IPlanet
+    public interface IPlanet
     {
         string Name { get; set; } //Name of the plant
 
