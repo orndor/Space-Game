@@ -349,6 +349,6 @@ healthchecksdb
 MigrationBackup/
 
 # Visual Studio Code Workspace files
-.code-workspace
-.vscode
+.code-workspace/
+.vscode/
 
