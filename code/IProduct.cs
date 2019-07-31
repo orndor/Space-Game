@@ -6,15 +6,8 @@ namespace Space_Game
 {
     interface IProduct
     {
-
         string ProductName { get; set; }
-
-        decimal Price { get; set; }
-
-        string SupplyPlanet { get; set; }
-
-        string DemandPlanet { get; set; }
-
-
+        int Price { get; set; }
+        byte Planet { get; set; }
     }
 }
