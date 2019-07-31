@@ -11,25 +11,25 @@ namespace Space_Game
         {
         }
 
-        public string name { get; set; }  //Name of the plant
-        public byte planetNum { get; set; }
+        public string Name { get => Name; set => Name = GetPlanetName(PlanetNum); }  //Name of the plant
+        public byte PlanetNum { get; set; }
 
 
-        public string getPlanetName(byte planetNum)
+        public string GetPlanetName(byte PlanetNum)
         {
-            switch (planetNum)
+            switch (PlanetNum)
             {
                 case 1:
-                    name = "Earth";
+                    Name = "Earth";
                     break;
                 case 2:
-                    name = "Proxima Centauri 1";
+                    Name = "Proxima Centauri 1";
                     break;
                 case 3:
-                    name = "Bernard' Star 1";
+                    Name = "Bernard' Star 1";
                     break;
             }
-            return name;
+            return Name;
         }
     }
 }

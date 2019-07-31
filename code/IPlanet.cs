@@ -7,9 +7,9 @@ namespace Space_Game
     interface IPlanet
     {
 
-        string name { get; set; }  //Name of the plant
-        byte planetNum { get; set; }
-        string getPlanetName(byte planetNum);
+        string Name { get; set; }  //Name of the plant
+        byte PlanetNum { get; set; }
+        string GetPlanetName(byte PlanetNum);
     }
 
 }
