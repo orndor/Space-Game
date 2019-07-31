@@ -7,12 +7,15 @@ namespace Space_Game
     class Planet : IPlanet
     {
 
-        public Planet()
-        {
-        }
 
         public string Name { get => Name; set => Name = GetPlanetName(PlanetNum); }  //Name of the plant
         public byte PlanetNum { get; set; }
+
+        public Planet(string name, byte planetNum)
+        {
+            this.Name = name;
+            this.PlanetNum = planetNum;
+        }
 
 
         public string GetPlanetName(byte PlanetNum)
