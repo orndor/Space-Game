@@ -8,8 +8,21 @@ namespace Space_Game
     {
         void Run()
         {
-            //Product EarthGold = new Product("Earth Gold", 100);
-            //Inventory.Products.Add(EarthGold);
+            Planet earth = new Planet(1);
+            bool userLoggedIn = true;
+
+            while(userLoggedIn)
+            {
+                Console.Write("Enter Name: ");
+                string userName = Console.ReadLine();
+
+                Spaceship earthShip = new Spaceship(earth.PlanetNum, userName, earth.PlanetNum);
+                Console.WriteLine(earthShip.ToString());
+                userLoggedIn = false;
+
+            }
+            
+            
 
         }
     }

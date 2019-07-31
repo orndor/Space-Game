@@ -17,7 +17,7 @@ namespace Space_Game
         public double EarthToBernard { get => EarthToBernard; set => value = 7.895; }
         public double PC1ToBernard { get => PC1ToBernard; set => value = 6.5; }
 
-        Spaceship(int origin, string name, int shipType, int age = 18)
+        internal Spaceship(int origin, string name, int shipType, int age = 18)
         {
             this.Age = age;
             this.Name = name;
@@ -28,11 +28,11 @@ namespace Space_Game
         }
         public void ReFuel(double fuelPrice) //from planet
         {
-            //if(GasTank == Inventory.Fuel){Console.WriteLine("Gas is Full"); return;}
+            if(GasTank == Gas){ Console.WriteLine("Gas is Full"); return;}
             for(int i = 0; i <= GasTank; i++)
             {
                 //Inventory.Money - fuelPrice;
-                //Inventory.Fuel++;
+                Gas++;
             }
             Console.WriteLine("Gas is full");
 
@@ -72,6 +72,11 @@ namespace Space_Game
             {
                 return 1.621;
             }
+        }
+
+        public override string ToString()
+        {
+            return $"ShipType {ShipType} WarpFactor {WarpFactor}";
         }
     }
 }
