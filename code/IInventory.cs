@@ -8,14 +8,9 @@ namespace Space_Game
 {
     interface IInventory
     {
-        decimal Money { get; set; }
-
-        int Gas { get; set; }
-
-        List<Product> Products(); //anything
-
-        void Buy();
-
-        void Sell();
+        
+        //List<Product> Products { get; set; }
+        void Buy(List<Product> inventory, string item);
+        void Sell(List<Product> inventory);
     }
 }
