@@ -7,27 +7,30 @@ namespace Space_Game
     class Planet : IPlanet
     {
 
-        public string Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }  //Name of the plant
-        public decimal Multiplier { get => throw new NotImplementedException(); set => throw new NotImplementedException(); } //This is the amount of we multiple the cost of an item on an in-demand planet
-
-
-        //strings in demand will lookup product dictionary
-        public Dictionary<string, decimal> demand()
+        public Planet()
         {
-            throw new NotImplementedException(); //A list for holding the name of the product from the Product object
-        }
-        public Dictionary<string, decimal> supply()
-        {
-            throw new NotImplementedException(); //A list for holding the name of the product from the Product object
         }
 
-        public void GetDemand()
+        public string name { get; set; }  //Name of the plant
+        public byte planetNum { get; set; }
+
+
+        public string getPlanetName(byte planetNum)
         {
-            throw new NotImplementedException();
-        }
-        public void GetSupply()
-        {
-            throw new NotImplementedException();
+            switch (planetNum)
+            {
+                case 1:
+                    name = "Earth";
+                    break;
+                case 2:
+                    name = "Proxima Centauri 1";
+                    break;
+                case 3:
+                    name = "Bernard' Star 1";
+                    break;
+            }
+            return name;
         }
     }
 }
+
