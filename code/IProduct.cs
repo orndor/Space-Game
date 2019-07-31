@@ -14,7 +14,6 @@ namespace Space_Game
         string SupplyPlanet { get; set; }
 
         string DemandPlanet { get; set; }
-        // Dictionary<string, string> Products(); // Planet, Productname
 
 
     }

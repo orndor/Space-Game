@@ -10,9 +10,8 @@ namespace Space_Game
 
         public decimal Price { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
-        public string SupplyPlanet { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        
 
-        public string DemandPlanet { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        // Dictionary<string, string> Products(); // Planet, Productname
+       
     }
 }

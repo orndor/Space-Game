@@ -12,8 +12,9 @@ namespace Space_Game
 
 
         //strings in demand will lookup product dictionary
-        Dictionary<string, decimal> demand(); //A list for holding the name of the product from the Product object
-        Dictionary<string, decimal> supply(); //A list for holding the name of the product from the Product object
+        
+        List<string> Supply();
+        List<string> Demand();
 
         void GetDemand();
         void GetSupply();
