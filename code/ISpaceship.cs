@@ -26,7 +26,7 @@ namespace Space_Game
         double PC1ToBernard { get; set; }
         
 
-        void ReFuel(double fuelPrice); //Cool functions that ensure 100 or above 0; change fuel property; for i statement about gas maxing out, minus money
+        void ReFuel(int fuelPrice); //Cool functions that ensure 100 or above 0; change fuel property; for i statement about gas maxing out, minus money
 
         void Travel(int currentPlanet, int travelPlanet);//if fuel = 0, environment.exit(0); age change, spend gas, change location
 

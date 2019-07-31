@@ -9,6 +9,8 @@ namespace Space_Game
 
         public byte PlanetNum { get; set; }
         public string PlanetName { get; set; }
+
+        public int fuelPrice { get => fuelPrice; set => GetFuel(PlanetNum); }
         public Planet(byte planetNum = 1 )
         {
             this.PlanetName = GetPlanetName(planetNum);
@@ -32,6 +34,25 @@ namespace Space_Game
                     break;
             }
             return PlanetName;
+        }
+
+        decimal GetFuel(int PlanetNum)
+        {
+            decimal price = 0;
+            switch (PlanetNum)
+            {
+                case 1:
+                    price = 1;
+                    break;
+                case 2:
+                    price = 3;
+                    break;
+                case 3:
+                    price = 2;
+                    break;
+            }
+            return price;
+
         }
     }
 }

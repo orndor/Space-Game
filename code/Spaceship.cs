@@ -26,12 +26,12 @@ namespace Space_Game
             
 
         }
-        public void ReFuel(double fuelPrice) //from planet
+        public void ReFuel(int fuelPrice) //from planet
         {
             if(GasTank == Gas){ Console.WriteLine("Gas is Full"); return;}
             for(int i = 0; i <= GasTank; i++)
             {
-                //Inventory.Money - fuelPrice;
+                Global.money -= fuelPrice;
                 Gas++;
             }
             Console.WriteLine("Gas is full");
