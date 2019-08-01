@@ -9,55 +9,20 @@ namespace Space_Game
         string userName;
         string origin;
         int originInt;
-        void Run()
+        public void Run()
         {
             //
-            Planet earth = new Planet(1);
-            bool userLoggedIn = true;
 
-            while(userLoggedIn)
-            {
-                if(userName == null)
-                {
-                    Console.Write("Enter Name: ");
-                    userName = Console.ReadLine();
-                    
-                }
+            Console.WriteLine("Success1");
+            Spaceship spaceship = new Spaceship(1, "Luke");
+            Console.WriteLine("Success1");
+            spaceship.TravelUI();
+            Console.WriteLine("Success1");
+            Console.WriteLine(spaceship.ToString());
 
-                try
-                {
-                    Console.Write("1: Earth, 2: PC1, 3: Bernard's Star");
-                    origin = Console.ReadLine();
-                    originInt = Convert.ToInt32(origin);
-                }
-                catch
-                {
-                    Console.WriteLine("Not a number");
-                    userLoggedIn = false;
-                }
-
-                if (!userLoggedIn)
-                {
-                    switch(originInt)
-                    {
-                        case 1:
-                            Spaceship earthShip = new Spaceship(earth.PlanetNum, userName, earth.PlanetNum);
-                            Console.WriteLine(earthShip.ToString());
-                            break;
-                        case 2:
-                            break;
-                        case 3:
-                            break;
-                    }
-                
-                    
-                }
-                
-
-            }
-            
-            
 
         }
+
+
     }
 }

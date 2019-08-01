@@ -27,7 +27,7 @@ namespace Space_Game
 
             // Set the buffer size of console, need to do this only when we first run the program.
             Console.SetBufferSize(150, 40);
-
+            /*
             //Example purchases are bleow
             shoping.Buy(inventories, shoping.FindPrice("Oatmeal Pies"));
             shoping.Buy(inventories, shoping.FindPrice("Oatmeal Pies"));
@@ -45,7 +45,7 @@ namespace Space_Game
             shoping.Buy(inventories, shoping.FindPrice("Styrofoam"));
             shoping.Buy(inventories, shoping.FindPrice("Styrofoam"));
             //Example purchases are above
-
+            */
             // Draw the the right and bottom boxes
             PrintSideBottomMenu(inventories);
 
