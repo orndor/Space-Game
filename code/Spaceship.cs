@@ -6,10 +6,10 @@ namespace Space_Game
 {
     class Spaceship : ISpaceship
     {
-        public int Origin { get => Origin; set => Origin = value; }
-        public double Age { get => Age; set => Age = value; }
-        public string Name { get => Name; set => Name = value; }
-        public int ShipType { get => ShipType; set => ShipType = value; }
+        public int Origin { get; set; }
+        public double Age { get; set; }
+        public string Name { get; set; }
+        public int ShipType { get; set; }
         public double WarpFactor { get => WarpFactor; set => GetWarp(); }
         public int GasTank { get => GasTank; set => value = Origin * 10; }
         public int Gas { get => Gas; set => value = GasTank; }
@@ -17,12 +17,12 @@ namespace Space_Game
         public double EarthToBernard { get => EarthToBernard; set => value = 7.895; }
         public double PC1ToBernard { get => PC1ToBernard; set => value = 6.5; }
 
-        internal Spaceship(int origin, string name, int shipType, int age = 18)
+        internal Spaceship(int origin, string name, int age = 18)
         {
             this.Age = age;
             this.Name = name;
             this.Origin = origin;
-            this.ShipType = shipType;
+            this.ShipType = this.Origin;
             
 
         }

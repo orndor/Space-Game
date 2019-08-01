@@ -11,7 +11,7 @@ namespace Space_Game
         {
             Planet earth = new Planet(1);
 
-            //Spaceship userSpaceship = new Spaceship(1, "Rob", 1, 18); //<--This class appears to be broken
+            Spaceship userSpaceship = new Spaceship(1, "Rob"); //<--This class appears to be broken
 
             Product product = new Product();
 
