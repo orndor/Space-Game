@@ -9,7 +9,7 @@ namespace Space_Game
          
         static void Main(string[] args)
         {
-
+            new App().Run();
         }
     }
 }

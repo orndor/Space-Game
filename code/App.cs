@@ -7,7 +7,7 @@ namespace Space_Game
     class App
     {
         
-        void Run()
+        public void Run()
         {
             Planet earth = new Planet(1);
 
