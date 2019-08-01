@@ -29,21 +29,21 @@ namespace Space_Game
             Console.SetBufferSize(150, 40);
 
             //Example purchases are bleow
-            shoping.Buy(inventories, shoping.FindPrice("Oatmeal Pies"));
-            shoping.Buy(inventories, shoping.FindPrice("Oatmeal Pies"));
-            shoping.Buy(inventories, shoping.FindPrice("Light Bulbs"));
-            shoping.Buy(inventories, shoping.FindPrice("Light Bulbs"));
-            shoping.Buy(inventories, shoping.FindPrice("Light Bulbs"));
-            shoping.Buy(inventories, shoping.FindPrice("Gold"));
-            shoping.Buy(inventories, shoping.FindPrice("Gold"));
-            shoping.Buy(inventories, shoping.FindPrice("Gold"));
-            shoping.Buy(inventories, shoping.FindPrice("Light Bulbs"));
-            shoping.Buy(inventories, shoping.FindPrice("Water"));
-            shoping.Buy(inventories, shoping.FindPrice("Water"));
-            shoping.Buy(inventories, shoping.FindPrice("Liquid Soap"));
-            shoping.Buy(inventories, shoping.FindPrice("Gold"));
-            shoping.Buy(inventories, shoping.FindPrice("Styrofoam"));
-            shoping.Buy(inventories, shoping.FindPrice("Styrofoam"));
+            //shoping.Buy(inventories, shoping.FindPrice("Oatmeal Pies"));
+            //shoping.Buy(inventories, shoping.FindPrice("Oatmeal Pies"));
+            //shoping.Buy(inventories, shoping.FindPrice("Light Bulbs"));
+            //shoping.Buy(inventories, shoping.FindPrice("Light Bulbs"));
+            //shoping.Buy(inventories, shoping.FindPrice("Light Bulbs"));
+            //shoping.Buy(inventories, shoping.FindPrice("Gold"));
+            //shoping.Buy(inventories, shoping.FindPrice("Gold"));
+            //shoping.Buy(inventories, shoping.FindPrice("Gold"));
+            //shoping.Buy(inventories, shoping.FindPrice("Light Bulbs"));
+            //shoping.Buy(inventories, shoping.FindPrice("Water"));
+            //shoping.Buy(inventories, shoping.FindPrice("Water"));
+            //shoping.Buy(inventories, shoping.FindPrice("Liquid Soap"));
+            //shoping.Buy(inventories, shoping.FindPrice("Gold"));
+            //shoping.Buy(inventories, shoping.FindPrice("Styrofoam"));
+            //shoping.Buy(inventories, shoping.FindPrice("Styrofoam"));
             //Example purchases are above
 
             // Draw the the right and bottom boxes

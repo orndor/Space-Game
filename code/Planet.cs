@@ -36,9 +36,9 @@ namespace Space_Game
             return PlanetName;
         }
 
-        decimal GetFuel(int PlanetNum)
+        public int GetFuel(int PlanetNum)
         {
-            decimal price = 0;
+            int price = 0;
             switch (PlanetNum)
             {
                 case 1:
