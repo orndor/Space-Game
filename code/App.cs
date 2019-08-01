@@ -36,7 +36,7 @@ namespace Space_Game
             Console.Write("Press [S] to save game.  Press [Q] to quit.");
             Console.ReadKey(true);
         }
-        static void PrintSideBottomMenu(List<Product> inventories)
+        static void PrintSideBottomMenu(List<Product> inventories, Spaceship userSpaceship)
         {
             int numOfGold = 0;
             int numOfwater = 0;
@@ -58,9 +58,9 @@ namespace Space_Game
             Console.WriteLine($"----==={Global.name} Stats===---");
             Console.ForegroundColor = ConsoleColor.White;
             Console.SetCursorPosition(122, 1);
-            Console.WriteLine($"           Age: 18");
+            Console.WriteLine($"           Age: {Global.age}");
             Console.SetCursorPosition(122, 3);
-            Console.WriteLine($"          Fuel: 100%");
+            Console.WriteLine($"          Fuel: {userSpaceship.Gas}");
             Console.SetCursorPosition(122, 5);
             Console.WriteLine($"        Wallet: {Global.money} Cubits");
             Console.SetCursorPosition(122, 7);
