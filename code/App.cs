@@ -28,24 +28,6 @@ namespace Space_Game
             // Set the buffer size of console, need to do this only when we first run the program.
             Console.SetBufferSize(150, 40);
 
-            //Example purchases are bleow
-            //shoping.Buy(inventories, shoping.FindPrice("Oatmeal Pies"));
-            //shoping.Buy(inventories, shoping.FindPrice("Oatmeal Pies"));
-            //shoping.Buy(inventories, shoping.FindPrice("Light Bulbs"));
-            //shoping.Buy(inventories, shoping.FindPrice("Light Bulbs"));
-            //shoping.Buy(inventories, shoping.FindPrice("Light Bulbs"));
-            //shoping.Buy(inventories, shoping.FindPrice("Gold"));
-            //shoping.Buy(inventories, shoping.FindPrice("Gold"));
-            //shoping.Buy(inventories, shoping.FindPrice("Gold"));
-            //shoping.Buy(inventories, shoping.FindPrice("Light Bulbs"));
-            //shoping.Buy(inventories, shoping.FindPrice("Water"));
-            //shoping.Buy(inventories, shoping.FindPrice("Water"));
-            //shoping.Buy(inventories, shoping.FindPrice("Liquid Soap"));
-            //shoping.Buy(inventories, shoping.FindPrice("Gold"));
-            //shoping.Buy(inventories, shoping.FindPrice("Styrofoam"));
-            //shoping.Buy(inventories, shoping.FindPrice("Styrofoam"));
-            //Example purchases are above
-
             // Draw the the right and bottom boxes
             PrintSideBottomMenu(inventories);
 
@@ -73,7 +55,7 @@ namespace Space_Game
             //Put current planet, Age, Fuel level, and Money in the right box.
             Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.SetCursorPosition(122, 0);
-            Console.WriteLine("-----===Player Stats===----");
+            Console.WriteLine($"----==={Global.name} Stats===---");
             Console.ForegroundColor = ConsoleColor.White;
             Console.SetCursorPosition(122, 1);
             Console.WriteLine($"           Age: 18");
