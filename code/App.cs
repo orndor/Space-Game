@@ -21,13 +21,13 @@ namespace Space_Game
             Shoping shoping = new Shoping(products);
 
             // Set the window size (left number is column, right number is row), need to do this only when we first run the program.
-            Console.SetWindowSize(150, 50);
+            Console.SetWindowSize(150, 40);
 
             //Need to do this only when we first run the program.
             Console.SetWindowPosition(0, 0);
 
             // Set the buffer size of console, need to do this only when we first run the program.
-            Console.SetBufferSize(150, 50);
+            Console.SetBufferSize(150, 40);
 
             //Example purchases are bleow
             shoping.Buy(inventories, shoping.FindPrice("Oatmeal Pies"));
@@ -64,7 +64,7 @@ namespace Space_Game
             int numOfOatmeal = 0;
             int numOfLightBulbs = 0;
 
-            for (int i = 0; i < 41; i++)
+            for (int i = 0; i < 31; i++)
             {
                 Console.BackgroundColor = ConsoleColor.DarkRed;
                 Console.SetCursorPosition(120, i);
@@ -122,25 +122,25 @@ namespace Space_Game
             for (int i = 0; i < 150; i++)
             {
                 Console.BackgroundColor = ConsoleColor.DarkRed;
-                Console.SetCursorPosition(i, 40);
+                Console.SetCursorPosition(i, 30);
                 Console.WriteLine(" ");
                 Console.BackgroundColor = ConsoleColor.Black;
             }
             Console.ForegroundColor = ConsoleColor.DarkYellow;
-            Console.SetCursorPosition(0, 41);
+            Console.SetCursorPosition(0, 31);
             Console.WriteLine("--------=====Inventory=====--------");
             Console.ForegroundColor = ConsoleColor.White;
-            Console.SetCursorPosition(0, 42);
+            Console.SetCursorPosition(0, 32);
             Console.WriteLine($"       Gold: {numOfGold}");
-            Console.SetCursorPosition(0, 43);
+            Console.SetCursorPosition(0, 33);
             Console.WriteLine($"      Water: {numOfwater}");
-            Console.SetCursorPosition(0, 44);
+            Console.SetCursorPosition(0, 34);
             Console.WriteLine($"Liquid Soap: {numOfLiquidSoap}");
-            Console.SetCursorPosition(20, 42);
+            Console.SetCursorPosition(20, 32);
             Console.WriteLine($"   Styrofoam: {numOfStyrofoam}");
-            Console.SetCursorPosition(20, 43);
+            Console.SetCursorPosition(20, 33);
             Console.WriteLine($"Oatmeal Pies: {numOfOatmeal}");
-            Console.SetCursorPosition(20, 44);
+            Console.SetCursorPosition(20, 34);
             Console.WriteLine($" Light Bulbs: {numOfLightBulbs}");
             Console.WriteLine($" ");
             Console.WriteLine($" ");
