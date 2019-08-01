@@ -21,13 +21,13 @@ namespace Space_Game
             Shoping shoping = new Shoping(products);
 
             // Set the window size (left number is column, right number is row), need to do this only when we first run the program.
-            Console.SetWindowSize(180, 50);
+            Console.SetWindowSize(150, 50);
 
             //Need to do this only when we first run the program.
             Console.SetWindowPosition(0, 0);
 
             // Set the buffer size of console, need to do this only when we first run the program.
-            Console.SetBufferSize(181, 50);
+            Console.SetBufferSize(150, 50);
 
             //Example purchases are bleow
             shoping.Buy(inventories, shoping.FindPrice("Oatmeal Pies"));
@@ -67,22 +67,22 @@ namespace Space_Game
             for (int i = 0; i < 41; i++)
             {
                 Console.BackgroundColor = ConsoleColor.DarkRed;
-                Console.SetCursorPosition(150, i);
+                Console.SetCursorPosition(120, i);
                 Console.WriteLine(" ");
                 Console.BackgroundColor = ConsoleColor.Black;
             }
             //Put current planet, Age, Fuel level, and Money in the right box.
             Console.ForegroundColor = ConsoleColor.DarkYellow;
-            Console.SetCursorPosition(152, 0);
+            Console.SetCursorPosition(122, 0);
             Console.WriteLine("-----===Player Stats===----");
             Console.ForegroundColor = ConsoleColor.White;
-            Console.SetCursorPosition(152, 1);
+            Console.SetCursorPosition(122, 1);
             Console.WriteLine($"           Age: 18");
-            Console.SetCursorPosition(152, 3);
+            Console.SetCursorPosition(122, 3);
             Console.WriteLine($"          Fuel: 100%");
-            Console.SetCursorPosition(152, 5);
+            Console.SetCursorPosition(122, 5);
             Console.WriteLine($"        Wallet: {Global.money} Cubits");
-            Console.SetCursorPosition(152, 7);
+            Console.SetCursorPosition(122, 7);
             Console.WriteLine($"Current Planet: Earth");
 
 
@@ -119,7 +119,7 @@ namespace Space_Game
                     numOfLightBulbs += 1;
             }
 
-            for (int i = 0; i < 180; i++)
+            for (int i = 0; i < 150; i++)
             {
                 Console.BackgroundColor = ConsoleColor.DarkRed;
                 Console.SetCursorPosition(i, 40);
