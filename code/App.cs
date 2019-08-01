@@ -29,7 +29,7 @@ namespace Space_Game
             Console.SetBufferSize(150, 40);
 
             // Draw the the right and bottom boxes
-            PrintSideBottomMenu(inventories);
+            PrintSideBottomMenu(inventories, userSpaceship);
 
 
             //Stop the game to wait on user input
