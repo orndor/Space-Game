@@ -18,7 +18,6 @@ namespace Space_Game
             List<Product> products = new List<Product>();
             List<Product> inventories = new List<Product>();
             product.AddProducts(products);
-            Shoping shoping = new Shoping(products);
 
             // Set the window size (left number is column, right number is row), need to do this only when we first run the program.
             Console.SetWindowSize(150, 40);
