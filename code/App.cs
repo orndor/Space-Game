@@ -33,24 +33,24 @@ namespace Space_Game
 =======
             /*
             //Example purchases are bleow
-            shoping.Buy(inventories, shoping.FindPrice("Oatmeal Pies"));
-            shoping.Buy(inventories, shoping.FindPrice("Oatmeal Pies"));
-            shoping.Buy(inventories, shoping.FindPrice("Light Bulbs"));
-            shoping.Buy(inventories, shoping.FindPrice("Light Bulbs"));
-            shoping.Buy(inventories, shoping.FindPrice("Light Bulbs"));
-            shoping.Buy(inventories, shoping.FindPrice("Gold"));
-            shoping.Buy(inventories, shoping.FindPrice("Gold"));
-            shoping.Buy(inventories, shoping.FindPrice("Gold"));
-            shoping.Buy(inventories, shoping.FindPrice("Light Bulbs"));
-            shoping.Buy(inventories, shoping.FindPrice("Water"));
-            shoping.Buy(inventories, shoping.FindPrice("Water"));
-            shoping.Buy(inventories, shoping.FindPrice("Liquid Soap"));
-            shoping.Buy(inventories, shoping.FindPrice("Gold"));
-            shoping.Buy(inventories, shoping.FindPrice("Styrofoam"));
-            shoping.Buy(inventories, shoping.FindPrice("Styrofoam"));
+            //shoping.Buy(inventories, shoping.FindPrice("Oatmeal Pies"));
+            //shoping.Buy(inventories, shoping.FindPrice("Oatmeal Pies"));
+            //shoping.Buy(inventories, shoping.FindPrice("Light Bulbs"));
+            //shoping.Buy(inventories, shoping.FindPrice("Light Bulbs"));
+            //shoping.Buy(inventories, shoping.FindPrice("Light Bulbs"));
+            //shoping.Buy(inventories, shoping.FindPrice("Gold"));
+            //shoping.Buy(inventories, shoping.FindPrice("Gold"));
+            //shoping.Buy(inventories, shoping.FindPrice("Gold"));
+            //shoping.Buy(inventories, shoping.FindPrice("Light Bulbs"));
+            //shoping.Buy(inventories, shoping.FindPrice("Water"));
+            //shoping.Buy(inventories, shoping.FindPrice("Water"));
+            //shoping.Buy(inventories, shoping.FindPrice("Liquid Soap"));
+            //shoping.Buy(inventories, shoping.FindPrice("Gold"));
+            //shoping.Buy(inventories, shoping.FindPrice("Styrofoam"));
+            //shoping.Buy(inventories, shoping.FindPrice("Styrofoam"));
             //Example purchases are above
-            */
->>>>>>> Luke
+            Menu menu = new Menu();
+            //menu.KeyCatch(inventories, products);
             // Draw the the right and bottom boxes
             PrintSideBottomMenu(inventories, userSpaceship);
 
@@ -59,7 +59,7 @@ namespace Space_Game
             Console.Write("Press [S] to save game.  Press [Q] to quit.");
             Console.ReadKey(true);
         }
-        static void PrintSideBottomMenu(List<Product> inventories, Spaceship userSpaceship)
+        static public void PrintSideBottomMenu(List<Product> inventories)
         {
             int numOfGold = 0;
             int numOfwater = 0;
