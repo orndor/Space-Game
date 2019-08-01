@@ -6,8 +6,8 @@ namespace Space_Game
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            //test
+            App app = new App();
+            app.Run();
         }
     }
 }

@@ -7,6 +7,7 @@ namespace Space_Game
     class Shoping
     {
         List<Product> market = new List<Product>();
+        List<Product> menuList = new List<Product>();
         public Shoping(List<Product> products)
         {
             market = products;
@@ -42,10 +43,113 @@ namespace Space_Game
 
         public void PrintSellList(List<Product> inventory)
         {
-            foreach (var item in inventory)
+            if (inventory.Count <= 0)
             {
-                Console.WriteLine(item.ProductName);
+                Console.WriteLine("Inventory is empty!");
             }
+            else
+            {
+                menuList.Clear();
+                foreach (var item in inventory)
+                { 
+                    Console.WriteLine(item.ProductName);
+                    menuList.Add(item);
+                }
+                Sell(inventory, Navigation(inventory));
+            }
+            
         }
+
+        public void PrintBuyList(List<Product> inventory)
+        {
+            menuList.Clear();
+            foreach (var item in market)
+            {
+                    if (item.Planet==Global.currentPlanet)
+                    {
+                        Console.WriteLine($"{item.ProductName} {item.Price}");
+                        menuList.Add(item);
+                    }                   
+            }
+                
+            Buy(inventory, Navigation(inventory));
+        }
+
+        Product Navigation(List<Product> inventory)
+        {
+            ConsoleKeyInfo consoleKeyInfo;
+            //int[] menuList = new int[5];
+           
+            int index = 0;
+            // When the arrow down key is pressed first time
+                Console.SetCursorPosition(0, index);
+                Console.ResetColor();
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.Write("\r" + new string(' ', Convert.ToString(menuList[index]).Length) + "\r"); // Clear current line
+                Console.Write(menuList[index].ProductName); // Rewrite it with matching index array item
+            
+
+            //for (int x = 0; x < 5; x++) menuList[x] = x;
+            //foreach (var i in menuList) Console.WriteLine(i);
+
+            Console.SetCursorPosition(0, 0);
+
+            while ((consoleKeyInfo = Console.ReadKey()).Key != ConsoleKey.Enter)
+            {
+                if (consoleKeyInfo.Key == ConsoleKey.DownArrow)
+                {
+                    index++;
+                    if (index >= 0 && index < menuList.Count)
+                    {
+                        Console.SetCursorPosition(0, index - 1);
+                        Console.ResetColor();
+                        Console.Write("\r" + new string(' ', Convert.ToString(menuList[index - 1]).Length) + "\r"); // Clear previous line
+                        Console.Write(menuList[index - 1].ProductName); // Rewrite it
+
+                        Console.SetCursorPosition(0, index);
+                        Console.ResetColor();
+                        Console.ForegroundColor = ConsoleColor.Blue;
+                        Console.Write("\r" + new string(' ', Convert.ToString(menuList[index]).Length) + "\r"); // Clear current line
+                        Console.Write(menuList[index].ProductName); // Rewrite it
+                    }
+                    // When the index is same/greater than menuList length, keep it with the same value
+                    // So the index doesn't increment
+                    else if(index >= menuList.Count)
+                    {
+                        Console.SetCursorPosition(0, index-1 );
+                        Console.ResetColor();
+                        Console.Write("\r" + new string(' ', Convert.ToString(menuList[index-1]).Length) + "\r"); // Clear previous line
+                        Console.Write(menuList[index-1].ProductName);
+                        index = 0;// index = menuList.Count - 1;
+                        Console.SetCursorPosition(0, index);
+                        Console.ResetColor();
+                        Console.ForegroundColor = ConsoleColor.Blue;
+                        Console.Write("\r" + new string(' ', Convert.ToString(menuList[index]).Length) + "\r"); // Clear current line
+                        Console.Write(menuList[index].ProductName);
+                    }
+                }
+                else if (consoleKeyInfo.Key == ConsoleKey.UpArrow) // Up arrow is intended to work only, when the index is greater than 0 (so the second or greater option is selected)
+                {
+                    if (index > 0) index--;
+                    if (index >= 0 && index < menuList.Count)
+                    {
+                        // Same as above
+                        Console.SetCursorPosition(0, index + 1);
+                        Console.ResetColor();
+                        Console.Write("\r" + new string(' ', Convert.ToString(menuList[index + 1]).Length) + "\r");
+                        Console.Write(menuList[index + 1].ProductName);
+
+                        Console.SetCursorPosition(0, index);
+                        Console.ResetColor();
+                        Console.ForegroundColor = ConsoleColor.Blue;
+                        Console.Write("\r" + new string(' ', Convert.ToString(menuList[index]).Length) + "\r");
+                        Console.Write(menuList[index].ProductName);
+                    }
+                }
+            }
+            //Buy(inventory, menuList[index]);
+            return menuList[index];
+        }
+
     }
 }

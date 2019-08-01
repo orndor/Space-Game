@@ -7,19 +7,16 @@ namespace Space_Game
     class App
     {
         
-        void Run()
+        public void Run()
         {
             Product product = new Product();
             
             List<Product> products = new List<Product>();
             List<Product> inventories = new List<Product>();
             product.AddProducts(products);
-            Shoping shoping = new Shoping(products);
 
-            shoping.Buy(inventories, shoping.FindPrice("Gold"));
-
-            shoping.Sell(inventories, shoping.FindPrice("Gold"));
-
+            Menu menu = new Menu();
+            menu.KeyCatch(inventories, products);
             //foreach (Product item in products)
             //{
             //    if ((item.ProductName == "Gold") && (item.Planet == Global.currentPlanet))

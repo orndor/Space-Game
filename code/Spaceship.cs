@@ -24,7 +24,6 @@ namespace Space_Game
             this.Origin = origin;
             this.ShipType = shipType;
             
-
         }
         public void ReFuel(int fuelPrice) //from planet
         {
