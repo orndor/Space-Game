@@ -9,7 +9,7 @@ namespace Space_Game
         
         public void Run()
         {
-            Planet earth = new Planet(1);
+            Planet earth = new Planet();
 
             Spaceship userSpaceship = new Spaceship(1, Global.name); //<--This class appears to be broken
 
@@ -28,24 +28,6 @@ namespace Space_Game
             // Set the buffer size of console, need to do this only when we first run the program.
             Console.SetBufferSize(150, 40);
 
-            
-            //Example purchases are bleow
-            //shoping.Buy(inventories, shoping.FindPrice("Oatmeal Pies"));
-            //shoping.Buy(inventories, shoping.FindPrice("Oatmeal Pies"));
-            //shoping.Buy(inventories, shoping.FindPrice("Light Bulbs"));
-            //shoping.Buy(inventories, shoping.FindPrice("Light Bulbs"));
-            //shoping.Buy(inventories, shoping.FindPrice("Light Bulbs"));
-            //shoping.Buy(inventories, shoping.FindPrice("Gold"));
-            //shoping.Buy(inventories, shoping.FindPrice("Gold"));
-            //shoping.Buy(inventories, shoping.FindPrice("Gold"));
-            //shoping.Buy(inventories, shoping.FindPrice("Light Bulbs"));
-            //shoping.Buy(inventories, shoping.FindPrice("Water"));
-            //shoping.Buy(inventories, shoping.FindPrice("Water"));
-            //shoping.Buy(inventories, shoping.FindPrice("Liquid Soap"));
-            //shoping.Buy(inventories, shoping.FindPrice("Gold"));
-            //shoping.Buy(inventories, shoping.FindPrice("Styrofoam"));
-            //shoping.Buy(inventories, shoping.FindPrice("Styrofoam"));
-            //Example purchases are above
             Menu menu = new Menu();
             
             // Draw the the right and bottom boxes
@@ -73,18 +55,23 @@ namespace Space_Game
                 Console.BackgroundColor = ConsoleColor.Black;
             }
             //Put current planet, Age, Fuel level, and Money in the right box.
+
+            Planet currentPlanet = new Planet();
+            string currentPlanetName = currentPlanet.GetPlanetName(Global.currentPlanet);
+
             Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.SetCursorPosition(122, 0);
-            Console.WriteLine($"----==={Global.name} Stats===---");
+            Console.WriteLine($"----==={Global.name}'s Stats===---");
             Console.ForegroundColor = ConsoleColor.White;
             Console.SetCursorPosition(122, 1);
-            Console.WriteLine($"           Age: {Global.age}");
+            Console.WriteLine($"     Age: {Global.age}");
             Console.SetCursorPosition(122, 3);
-            Console.WriteLine($"          Fuel: {userSpaceship.Gas}");
+            Console.WriteLine($"    Fuel: {userSpaceship.Gas}");
             Console.SetCursorPosition(122, 5);
-            Console.WriteLine($"        Wallet: {Global.money} Cubits");
+            Console.WriteLine($"  Wallet: {Global.money} Cubits");
             Console.SetCursorPosition(122, 7);
-            Console.WriteLine($"Current Planet: Earth");
+
+            Console.WriteLine($"Location: {currentPlanetName.PadRight(14)}");
 
             //Put current inventory in the bottom box
             for (int i = 0; i < inventories.Count; i++)
