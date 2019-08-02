@@ -11,7 +11,7 @@ namespace Space_Game
         {
             Planet earth = new Planet(1);
 
-            Spaceship userSpaceship = new Spaceship(1, "Rob"); //<--This class appears to be broken
+            Spaceship userSpaceship = new Spaceship(1, Global.name); //<--This class appears to be broken
 
             Product product = new Product();
 
@@ -28,10 +28,8 @@ namespace Space_Game
 
             // Set the buffer size of console, need to do this only when we first run the program.
             Console.SetBufferSize(150, 40);
-<<<<<<< HEAD
 
-=======
-            /*
+            
             //Example purchases are bleow
             //shoping.Buy(inventories, shoping.FindPrice("Oatmeal Pies"));
             //shoping.Buy(inventories, shoping.FindPrice("Oatmeal Pies"));
@@ -50,16 +48,16 @@ namespace Space_Game
             //shoping.Buy(inventories, shoping.FindPrice("Styrofoam"));
             //Example purchases are above
             Menu menu = new Menu();
-            //menu.KeyCatch(inventories, products);
+            
             // Draw the the right and bottom boxes
             PrintSideBottomMenu(inventories, userSpaceship);
-
+            menu.KeyCatch(inventories, products);
 
             //Stop the game to wait on user input
             Console.Write("Press [S] to save game.  Press [Q] to quit.");
             Console.ReadKey(true);
         }
-        static public void PrintSideBottomMenu(List<Product> inventories)
+        static public void PrintSideBottomMenu(List<Product> inventories, Spaceship userSpaceship)
         {
             int numOfGold = 0;
             int numOfwater = 0;

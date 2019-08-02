@@ -16,6 +16,7 @@ namespace Space_Game
             ClearMenuArea();
             
             PrintMenu();
+            Spaceship userSpaceship = new Spaceship(1, Global.name);
             Console.SetCursorPosition(20, 11);
             PrintAnimation($"{Global.name}, please select an action by pressing a key from the bellow menu");
             ConsoleKeyInfo consoleKeyInfo;
@@ -36,7 +37,7 @@ namespace Space_Game
                         Console.ResetColor();
                         PrintMenu();
                         
-                        App.PrintSideBottomMenu(inventories);
+                        App.PrintSideBottomMenu(inventories, userSpaceship);
                         Console.SetCursorPosition(0, 0);
                         break;
                     case ConsoleKey.F3://Sell
@@ -45,7 +46,7 @@ namespace Space_Game
                         Console.ResetColor();
                         PrintMenu();
                         
-                        App.PrintSideBottomMenu(inventories);
+                        App.PrintSideBottomMenu(inventories, userSpaceship);
                         Console.SetCursorPosition(0, 0);
                         break;
                     case ConsoleKey.F4://Refuel
