@@ -18,7 +18,6 @@ namespace Space_Game
             List<Product> products = new List<Product>();
             List<Product> inventories = new List<Product>();
             product.AddProducts(products);
-<<<<<<< HEAD
 
             // Set the window size (left number is column, right number is row), need to do this only when we first run the program.
             Console.SetWindowSize(150, 40);
@@ -86,20 +85,6 @@ namespace Space_Game
             Console.WriteLine($"        Wallet: {Global.money} Cubits");
             Console.SetCursorPosition(122, 7);
             Console.WriteLine($"Current Planet: Earth");
-=======
-
-            Menu menu = new Menu();
-            menu.KeyCatch(inventories, products);
-            //foreach (Product item in products)
-            //{
-            //    if ((item.ProductName == "Gold") && (item.Planet == Global.currentPlanet))
-            //    {
-            //        inventory.Buy(inventories, item);
-            //    }
-            //}
->>>>>>> 5536cb15b47a0918958c683724963a3b1bab3b7c
-
-
 
             //Put current inventory in the bottom box
             for (int i = 0; i < inventories.Count; i++)

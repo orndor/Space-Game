@@ -89,7 +89,7 @@ namespace Space_Game
             for (int i = 0; i < txt.Length; i++)
             {
                 Console.Write(txt[i]);
-                Thread.Sleep(1);
+                Thread.Sleep(100);
             }
         }
 
