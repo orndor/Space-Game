@@ -26,12 +26,17 @@ namespace Space_Game
             return item;
         }
 
-        public void Buy(List<Product> inventory, Product item)
+        public bool Buy(List<Product> inventory, Product item)
         {
             if (item.Price <= Global.money)
             {
                 Global.money -= item.Price;
                 inventory.Add(item);
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
 
@@ -60,7 +65,7 @@ namespace Space_Game
             
         }
 
-        public void PrintBuyList(List<Product> inventory)
+        public bool PrintBuyList(List<Product> inventory)
         {
             menuList.Clear();
             Menu.ClearMenuArea();
@@ -73,7 +78,7 @@ namespace Space_Game
                     }                   
             }
                 
-            Buy(inventory, Navigation(inventory));
+            return Buy(inventory, Navigation(inventory));
         }
 
         Product Navigation(List<Product> inventory)

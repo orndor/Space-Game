@@ -17,28 +17,42 @@ namespace Space_Game
             
             PrintMenu();
             Spaceship userSpaceship = new Spaceship(1, Global.name);
+            Planet planet = new Planet();
             Console.SetCursorPosition(20, 11);
             PrintAnimation($"{Global.name}, please select an action by pressing a key from the bellow menu");
             ConsoleKeyInfo consoleKeyInfo;
             
             Shoping shoping = new Shoping(products);
-            //Spaceship spaceship = new Spaceship();
+            Spaceship spaceship = new Spaceship(Global.origin, Global.name, Global.age);
             
             while ((consoleKeyInfo = Console.ReadKey()).Key != ConsoleKey.F12) //if pressed F12 close app
             {
                 switch (consoleKeyInfo.Key)
                 {
                     case ConsoleKey.F1://travel
-                        
+                        spaceship.TravelUI();
                         break;
                     case ConsoleKey.F2://Buy
-                        shoping.PrintBuyList(inventories);
-                        ClearMenuArea();
-                        Console.ResetColor();
+                        if (shoping.PrintBuyList(inventories))
+                        {
+                            ClearMenuArea();
+                            Console.SetCursorPosition(10, 10);
+                            PrintAnimation($"The item was added to your inventory");
+                        }
+                        else
+                        {
+                            ClearMenuArea();
+                            Console.SetCursorPosition(10, 10);
+                            PrintAnimation($"Soryy {Global.name}, but you don't have enough money to buy the item");                           
+                        }
+                        
+                        //Console.ResetColor();
                         PrintMenu();
                         
                         App.PrintSideBottomMenu(inventories, userSpaceship);
-                        Console.SetCursorPosition(0, 0);
+                        
+                        Console.SetCursorPosition(10, 12);
+                        PrintAnimation($"{Global.name}, please select an action by pressing a key from the bellow menu");
                         break;
                     case ConsoleKey.F3://Sell
                         shoping.PrintSellList(inventories);
@@ -50,7 +64,7 @@ namespace Space_Game
                         Console.SetCursorPosition(0, 0);
                         break;
                     case ConsoleKey.F4://Refuel
-                        
+                        spaceship.ReFuel(planet.GetFuel(Global.currentPlanet));
                         break;
 
                     default:
@@ -89,13 +103,14 @@ namespace Space_Game
             for (int i = 0; i < txt.Length; i++)
             {
                 Console.Write(txt[i]);
-                Thread.Sleep(100);
+                Thread.Sleep(1);
             }
         }
 
 
         public static void ClearMenuArea()
         {
+            Console.ResetColor();
             Console.SetCursorPosition(0, 0);
             for (int i = 0; i < 25; i++)
             {
