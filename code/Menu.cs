@@ -10,16 +10,18 @@ namespace Space_Game
         //List<string> menu = new List<string>() {"Travel", "Buy", "Sell", "Refuel", "Exit" };
         public void KeyCatch(List<Product> inventories, List<Product> products)
         {
+            Spaceship userSpaceship = new Spaceship(1, Global.name);
 
-            Welcome();
+            Welcome(inventories, userSpaceship);
 
             ClearMenuArea();
-            
-            PrintMenu();
-            Spaceship userSpaceship = new Spaceship(1, Global.name);
+
             Console.SetCursorPosition(20, 11);
             PrintAnimation($"{Global.name}, please select an action by pressing a key from the bellow menu");
             ConsoleKeyInfo consoleKeyInfo;
+
+            PrintMenu();
+
             
             Shoping shoping = new Shoping(products);
             //Spaceship spaceship = new Spaceship();
@@ -73,7 +75,7 @@ namespace Space_Game
             Console.WriteLine(new string('=', 120));
         }
 
-        void Welcome()
+        void Welcome(List<Product> inventories, Spaceship userSpaceship)
         {
             Console.SetCursorPosition(50, 2);
             PrintAnimation("Welcome to Space Game!");
@@ -81,7 +83,7 @@ namespace Space_Game
             Console.SetCursorPosition(50, 4);
             PrintAnimation("What is your name?");      
             Global.name=Console.ReadLine();
-            PrintPlanetList();
+            PrintPlanetList(inventories, userSpaceship);
         }
 
         void PrintAnimation(string txt)
@@ -104,7 +106,7 @@ namespace Space_Game
             Console.SetCursorPosition(0, 0);
         }
 
-        void PrintPlanetList()
+        void PrintPlanetList(List<Product> inventories, Spaceship userSpaceship)
         {
             //bool exit = false;
                            
@@ -132,9 +134,9 @@ namespace Space_Game
                 Console.SetCursorPosition(25, 10);
                 Console.Write("Error: the number is not valid, inputing 1, 2 or 3 >> ");            
             } while (true);
-            
+            Global.currentPlanet = Global.origin;
+            App.PrintSideBottomMenu(inventories, userSpaceship);
+
         }
-
-
     }
 }

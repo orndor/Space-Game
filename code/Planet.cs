@@ -7,19 +7,21 @@ namespace Space_Game
     class Planet : IPlanet
     {
 
-        public byte PlanetNum { get; set; }
-        public string PlanetName { get; set; }
+        // public byte PlanetNum { get; set; }
+        // public string PlanetName { get; set; }
 
-        public int fuelPrice { get => fuelPrice; set => GetFuel(PlanetNum); }
-        public Planet(byte planetNum = 1 )
-        {
-            this.PlanetName = GetPlanetName(planetNum);
-            this.PlanetNum = planetNum;
-        }
+        // public int fuelPrice { get; set; }
+        //public Planet(byte planetNum = 1 )
+        //{
+        //    this.PlanetName = GetPlanetName(planetNum);
+        //    this.PlanetNum = planetNum;
+        //}
 
 
         public string GetPlanetName(byte PlanetNum)
         {
+
+            string PlanetName = "Earth";
 
             switch (PlanetNum)
             {
