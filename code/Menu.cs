@@ -15,14 +15,11 @@ namespace Space_Game
             Welcome(inventories, userSpaceship);
 
             ClearMenuArea();
-<<<<<<< HEAD
-            
-            PrintMenu();
-            Spaceship userSpaceship = new Spaceship(1, Global.name);
-            Planet planet = new Planet();
-=======
 
->>>>>>> master
+            PrintMenu();
+            //Spaceship userSpaceship = new Spaceship(1, Global.name);
+            Planet planet = new Planet();
+
             Console.SetCursorPosition(20, 11);
             PrintAnimation($"{Global.name}, please select an action by pressing a key from the bellow menu");
             ConsoleKeyInfo consoleKeyInfo;
