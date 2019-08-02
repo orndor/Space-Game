@@ -11,7 +11,7 @@ namespace Space_Game
         {
             Planet earth = new Planet();
 
-            Spaceship userSpaceship = new Spaceship(1, Global.name); //<--This class appears to be broken
+            Spaceship userSpaceship = new Spaceship(Global.origin, Global.name); //<--This class appears to be broken
 
             Product product = new Product();
 
@@ -46,6 +46,7 @@ namespace Space_Game
             int numOfStyrofoam = 0;
             int numOfOatmeal = 0;
             int numOfLightBulbs = 0;
+            double warpSpeed = userSpaceship.GetWarp();
 
             for (int i = 0; i < 31; i++)
             {
@@ -59,9 +60,10 @@ namespace Space_Game
             Planet currentPlanet = new Planet();
             string currentPlanetName = currentPlanet.GetPlanetName(Global.currentPlanet);
 
+
             Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.SetCursorPosition(122, 0);
-            Console.WriteLine($"----==={Global.name}'s Stats===---");
+            Console.WriteLine($"----==={Global.name}'s Stats===----".PadRight(28));
             Console.ForegroundColor = ConsoleColor.White;
             Console.SetCursorPosition(122, 1);
             Console.WriteLine($"     Age: {Global.age}");
@@ -70,8 +72,12 @@ namespace Space_Game
             Console.SetCursorPosition(122, 5);
             Console.WriteLine($"  Wallet: {Global.money} Cubits");
             Console.SetCursorPosition(122, 7);
+            Console.WriteLine($"Location: {currentPlanetName.PadRight(28)}");
+            Console.SetCursorPosition(122, 9);
+            Console.WriteLine($"Max Warp: {warpSpeed}");
+            Console.SetCursorPosition(122,11);
 
-            Console.WriteLine($"Location: {currentPlanetName.PadRight(14)}");
+
 
             //Put current inventory in the bottom box
             for (int i = 0; i < inventories.Count; i++)

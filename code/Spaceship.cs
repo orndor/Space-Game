@@ -9,7 +9,7 @@ namespace Space_Game
         static int Origin { get; set; }
         public double Age { get; set; }
         public string Name { get; set; }
-        public double WarpFactor { get; set; } = GetWarp();
+        public double WarpFactor { get; set; }
         public int GasTank { get; set; } = GetGasTank();
         public int Gas { get; set; } = GetGasTank();
         public double EarthToPC1 { get; set; } = 4.2441;
@@ -61,19 +61,23 @@ namespace Space_Game
            
         }
 
-        static double GetWarp()
+        public double GetWarp()
         {
-            if (Origin == 1)
+            if (Global.origin == 1)
             {
                 return 2.0;
             }
-            if (Origin == 2)
+            if (Global.origin == 2)
             {
                 return 1.317;
             }
-            else
+            if (Global.origin == 3)
             {
                 return 1.621;
+            }
+            else
+            {
+                return 1.0;
             }
         }
 

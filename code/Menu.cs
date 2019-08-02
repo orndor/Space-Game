@@ -16,6 +16,10 @@ namespace Space_Game
 
             ClearMenuArea();
 
+            OpenAndEndCredits.OpeningCredits();
+
+            ClearMenuArea();
+
             PrintMenu();
             //Spaceship userSpaceship = new Spaceship(1, Global.name);
             Planet planet = new Planet();
