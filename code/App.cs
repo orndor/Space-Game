@@ -11,7 +11,7 @@ namespace Space_Game
         {
             Planet earth = new Planet();
 
-            Spaceship userSpaceship = new Spaceship(Global.origin, Global.name); //<--This class appears to be broken
+            Spaceship userSpaceship = new Spaceship(); //<--This class appears to be broken
 
             Product product = new Product();
 
