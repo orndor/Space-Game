@@ -7,7 +7,6 @@ namespace Space_Game
     public interface ISpaceship
     {
 
-        int Gas { get; set; }
 
         double EarthToPC1 { get; set; }
         double EarthToBernard { get; set; }

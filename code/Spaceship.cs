@@ -48,30 +48,38 @@ namespace Space_Game
             int temp = Gas;
             if(currentPlanet == 1 && travelPlanet == 2 || currentPlanet == 2 && travelPlanet == 1)
             {
-
+                Console.WriteLine("Travel");
                 Gas -= Convert.ToInt32(EarthToPC1 * travelMultiplier);
                 if(Gas < 0) { Menu.ClearMenuArea(); Gas = temp; Console.WriteLine("Not enough gas to travel..."); }
                 Global.age = Convert.ToByte(Global.age + EarthToPC1 / WarpFactor);
                 Global.currentPlanet = Convert.ToByte(travelPlanet);
-                
+                Menu.ClearMenuArea();
+                Console.WriteLine("Complete");
+                Console.WriteLine(Gas);
                 return;
             }
             if (currentPlanet == 1 && travelPlanet == 3 || currentPlanet == 3 && travelPlanet == 1)
             {
+                Console.WriteLine("Travel");
                 Gas -= Convert.ToInt32(EarthToBernard * travelMultiplier);
                 if (Gas < 0) { Menu.ClearMenuArea(); Gas = temp; Console.WriteLine("Not enough gas to travel..."); }
                 Global.age = Convert.ToByte(Global.age + EarthToBernard / WarpFactor);
                 Global.currentPlanet = Convert.ToByte(travelPlanet);
-                
+                Menu.ClearMenuArea();
+                Console.WriteLine("Complete");
+                Console.WriteLine(Gas);
                 return;
             }
             if (currentPlanet == 2 && travelPlanet == 3 || currentPlanet == 3 && travelPlanet == 2)
             {
+                Console.WriteLine("Travel");
                 Gas -= Convert.ToInt32(PC1ToBernard * travelMultiplier);
                 if (Gas < 0) { Menu.ClearMenuArea(); Gas = temp; Console.WriteLine("Not enough gas to travel..."); }
                 Global.age = Convert.ToByte(Global.age + PC1ToBernard / WarpFactor);
                 Global.currentPlanet = Convert.ToByte(travelPlanet);
-               
+                Menu.ClearMenuArea();
+                Console.WriteLine("Complete");
+                Console.WriteLine(Gas);
                 return;
             }
            
@@ -102,11 +110,11 @@ namespace Space_Game
             switch (Global.origin)
             {
                 case 1:
-                    return .2;
+                    return 2;
                 case 2:
-                    return .10;
+                    return 1.0;
                 case 3:
-                    return .15;
+                    return 1.5;
 
             }
             Menu.ClearMenuArea();
@@ -239,9 +247,10 @@ namespace Space_Game
                 //    position--;
                 //}
 
-
-
+            
             }
+            
+
             Travel(Global.currentPlanet, position);
             return;
 

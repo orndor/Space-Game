@@ -46,7 +46,7 @@ namespace Space_Game
             int numOfStyrofoam = 0;
             int numOfOatmeal = 0;
             int numOfLightBulbs = 0;
-            double warpSpeed = userSpaceship.GetWarp();
+            double warpSpeed = userSpaceship.WarpFactor;
 
             for (int i = 0; i < 31; i++)
             {
