@@ -139,7 +139,7 @@ namespace Space_Game
                     }
                         break;
                     case ConsoleKey.UpArrow:
-                        if (index > 0) index--;
+                        index--;//if (index > 0) index--;
                         if (index >= 0 && index < menuList.Count)
                         {
                             // Same as above
@@ -152,6 +152,19 @@ namespace Space_Game
                             Console.ResetColor();
                             Console.BackgroundColor = ConsoleColor.Blue;
                             //Console.Write("\r" + new string(' ', Convert.ToString(menuList[index]).Length) + "\r");
+                            Console.Write($"{menuList[index].ProductName} {menuList[index].Price}".PadRight(119, ' '));
+                        }
+                        else if (index < 0)
+                        {
+                            Console.SetCursorPosition(0, index+1 );
+                            Console.ResetColor();
+                            //Console.Write("\r" + new string(' ', Convert.ToString(menuList[index-1]).Length) + "\r"); // Clear previous line
+                            Console.Write($"{menuList[index+1].ProductName} {menuList[index+1].Price}".PadRight(119, ' '));
+                            index = menuList.Count-1;// index = menuList.Count - 1;
+                            Console.SetCursorPosition(0, index);
+                            Console.ResetColor();
+                            Console.BackgroundColor = ConsoleColor.Blue;
+                            //Console.Write("\r" + new string(' ', Convert.ToString(menuList[index]).Length) + "\r"); // Clear current line
                             Console.Write($"{menuList[index].ProductName} {menuList[index].Price}".PadRight(119, ' '));
                         }
                         break;

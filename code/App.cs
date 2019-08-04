@@ -35,7 +35,7 @@ namespace Space_Game
             menu.KeyCatch(inventories, products);
 
             //Stop the game to wait on user input
-            Console.Write("Press [S] to save game.  Press [Q] to quit.");
+            Console.WriteLine("Press [S] to save game.  Press [Q] to quit.");
             Console.ReadKey(true);
         }
         static public void PrintSideBottomMenu(List<Product> inventories, Spaceship userSpaceship)
