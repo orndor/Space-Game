@@ -8,7 +8,6 @@ namespace Space_Game
     {
         public double WarpFactor { get; set; }
         public double travelMultiplier { get; set; }
-        public int Gas { get; set; } = 100;
         public double EarthToPC1 { get; set; } = 4.2441;
         public double EarthToBernard { get; set; } = 7.895;
         public double PC1ToBernard { get; set; } = 6.5;
@@ -22,7 +21,7 @@ namespace Space_Game
         public void ReFuel() //from planet
         {
             int fuelPrice = Planet.GetFuel(Global.currentPlanet);
-            int diff = 100 - Gas;
+            int diff = 100 - Global.gas;
             
             if(diff == 0){ Menu.ClearMenuArea(); Console.WriteLine("Gas is already Full"); return;}
             
@@ -35,7 +34,7 @@ namespace Space_Game
                     return;
                 }
                 Global.money -= fuelPrice;
-                Gas++;
+                Global.gas++;
             }
             Menu.ClearMenuArea();
             //center here
@@ -45,41 +44,49 @@ namespace Space_Game
 
         public void Travel(int currentPlanet, int travelPlanet) //change current position
         {
-            int temp = Gas;
+            int temp = Global.gas;
             if(currentPlanet == 1 && travelPlanet == 2 || currentPlanet == 2 && travelPlanet == 1)
             {
                 Console.WriteLine("Travel");
-                Gas -= Convert.ToInt32(EarthToPC1 * travelMultiplier);
-                if(Gas < 0) { Menu.ClearMenuArea(); Gas = temp; Console.WriteLine("Not enough gas to travel..."); }
+                Global.gas -= Convert.ToInt32(EarthToPC1 * travelMultiplier);
+                if(Global.gas < 0) { Menu.ClearMenuArea(); Global.gas = temp; Console.WriteLine("Not enough Gas to travel..."); }
                 Global.age = Convert.ToByte(Global.age + EarthToPC1 / WarpFactor);
                 Global.currentPlanet = Convert.ToByte(travelPlanet);
                 Menu.ClearMenuArea();
-                Console.WriteLine("Complete");
-                Console.WriteLine(Gas);
+                Console.WriteLine("Gas");
+                Console.WriteLine(Global.gas);
+                Console.WriteLine("global age");
+                Console.WriteLine(Global.age);
                 return;
             }
             if (currentPlanet == 1 && travelPlanet == 3 || currentPlanet == 3 && travelPlanet == 1)
             {
                 Console.WriteLine("Travel");
-                Gas -= Convert.ToInt32(EarthToBernard * travelMultiplier);
-                if (Gas < 0) { Menu.ClearMenuArea(); Gas = temp; Console.WriteLine("Not enough gas to travel..."); }
-                Global.age = Convert.ToByte(Global.age + EarthToBernard / WarpFactor);
+                Global.gas -= Convert.ToInt32(EarthToBernard * travelMultiplier);
+                if (Global.gas < 0) { Menu.ClearMenuArea(); Global.gas = temp; Console.WriteLine("Not enough Gas to travel..."); }
+                byte age = Convert.ToByte(Global.age + EarthToBernard / WarpFactor);
+                Global.age = age;
                 Global.currentPlanet = Convert.ToByte(travelPlanet);
                 Menu.ClearMenuArea();
-                Console.WriteLine("Complete");
-                Console.WriteLine(Gas);
+                Console.WriteLine("Gas");
+                Console.WriteLine(Global.gas);
+                Console.WriteLine("global age");
+                Console.WriteLine(Global.age);
                 return;
             }
             if (currentPlanet == 2 && travelPlanet == 3 || currentPlanet == 3 && travelPlanet == 2)
             {
                 Console.WriteLine("Travel");
-                Gas -= Convert.ToInt32(PC1ToBernard * travelMultiplier);
-                if (Gas < 0) { Menu.ClearMenuArea(); Gas = temp; Console.WriteLine("Not enough gas to travel..."); }
-                Global.age = Convert.ToByte(Global.age + PC1ToBernard / WarpFactor);
+                Global.gas -= Convert.ToInt32(PC1ToBernard * travelMultiplier);
+                if (Global.gas < 0) { Menu.ClearMenuArea(); Global.gas = temp; Console.WriteLine("Not enough Gas to travel..."); }
+                byte age = Convert.ToByte(Global.age + PC1ToBernard / WarpFactor);
+                Global.age = age;
                 Global.currentPlanet = Convert.ToByte(travelPlanet);
                 Menu.ClearMenuArea();
-                Console.WriteLine("Complete");
-                Console.WriteLine(Gas);
+                Console.WriteLine("Gas");
+                Console.WriteLine(Global.gas);
+                Console.WriteLine("global age");
+                Console.WriteLine(Global.age);
                 return;
             }
            
@@ -261,7 +268,7 @@ namespace Space_Game
 
         public override string ToString()
         {
-            return $"Global.origin {Global.origin} WarpFactor {WarpFactor} Current Global.age {Global.age}";
+            return $"Global.origin {Global.origin} WarpFactor {WarpFactor} Current Gas {Global.age}";
         }
     }
 }

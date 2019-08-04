@@ -67,7 +67,7 @@ namespace Space_Game
             Console.SetCursorPosition(122, 1);
             Console.WriteLine($"     Age: {Global.age}");
             Console.SetCursorPosition(122, 3);
-            Console.WriteLine($"    Fuel: {userSpaceship.Gas}");
+            Console.WriteLine($"    Fuel: {Global.gas}");
             Console.SetCursorPosition(122, 5);
             Console.WriteLine($"  Wallet: {Global.money} Cubits");
             Console.SetCursorPosition(122, 7);
