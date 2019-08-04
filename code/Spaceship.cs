@@ -6,98 +6,152 @@ namespace Space_Game
 {
     class Spaceship : ISpaceship
     {
-        static int Origin { get; set; }
-        public double Age { get; set; }
-        public string Name { get; set; }
-        public double WarpFactor { get; set; } = GetWarp();
-        public int GasTank { get; set; } = GetGasTank();
-        public int Gas { get; set; } = GetGasTank();
+        public double WarpFactor { get; set; }
+        public double travelMultiplier { get; set; }
+        public int Gas { get; set; } = 100;
         public double EarthToPC1 { get; set; } = 4.2441;
         public double EarthToBernard { get; set; } = 7.895;
         public double PC1ToBernard { get; set; } = 6.5;
 
-        internal Spaceship(int origin, string name, int age = 18)
+        internal Spaceship()
         {
-            this.Age = age;
-            this.Name = name;
-            Origin = origin;
-            
+            WarpFactor = GetWarp();
+            travelMultiplier = GetTravelMultiplier();
+
         }
-        public void ReFuel(int fuelPrice) //from planet
+        public void ReFuel() //from planet
         {
-            if(GasTank == Gas){ Console.WriteLine("Gas is Full"); return;}
-            for(int i = 0; i <= GasTank; i++)
+            int fuelPrice = Planet.GetFuel(Global.currentPlanet);
+            int diff = 100 - Gas;
+            
+            if(diff == 0){ Menu.ClearMenuArea(); Console.WriteLine("Gas is already Full"); return;}
+            
+            for(int i = 0; i <= diff; i++)
             {
+                if (Global.money < fuelPrice)
+                {
+                    Menu.ClearMenuArea();
+                    Console.WriteLine($"Could not fill tank. You filled {i} units.");
+                    return;
+                }
                 Global.money -= fuelPrice;
                 Gas++;
             }
+            Menu.ClearMenuArea();
+            //center here
             Console.WriteLine("Gas is full");
 
         }
 
         public void Travel(int currentPlanet, int travelPlanet) //change current position
         {
+            int temp = Gas;
             if(currentPlanet == 1 && travelPlanet == 2 || currentPlanet == 2 && travelPlanet == 1)
             {
-                Age = Age + EarthToPC1 / WarpFactor;
+                Console.WriteLine("Travel");
+                Gas -= Convert.ToInt32(EarthToPC1 * travelMultiplier);
+                if(Gas < 0) { Menu.ClearMenuArea(); Gas = temp; Console.WriteLine("Not enough gas to travel..."); }
+                Global.age = Convert.ToByte(Global.age + EarthToPC1 / WarpFactor);
                 Global.currentPlanet = Convert.ToByte(travelPlanet);
-                Gas = Gas - 1;
+                Menu.ClearMenuArea();
+                Console.WriteLine("Complete");
+                Console.WriteLine(Gas);
                 return;
             }
             if (currentPlanet == 1 && travelPlanet == 3 || currentPlanet == 3 && travelPlanet == 1)
             {
-                Age = Age + EarthToBernard / WarpFactor;
+                Console.WriteLine("Travel");
+                Gas -= Convert.ToInt32(EarthToBernard * travelMultiplier);
+                if (Gas < 0) { Menu.ClearMenuArea(); Gas = temp; Console.WriteLine("Not enough gas to travel..."); }
+                Global.age = Convert.ToByte(Global.age + EarthToBernard / WarpFactor);
                 Global.currentPlanet = Convert.ToByte(travelPlanet);
-                Gas = Gas - 3;
+                Menu.ClearMenuArea();
+                Console.WriteLine("Complete");
+                Console.WriteLine(Gas);
                 return;
             }
             if (currentPlanet == 2 && travelPlanet == 3 || currentPlanet == 3 && travelPlanet == 2)
             {
-                Age = Age + PC1ToBernard / WarpFactor;
+                Console.WriteLine("Travel");
+                Gas -= Convert.ToInt32(PC1ToBernard * travelMultiplier);
+                if (Gas < 0) { Menu.ClearMenuArea(); Gas = temp; Console.WriteLine("Not enough gas to travel..."); }
+                Global.age = Convert.ToByte(Global.age + PC1ToBernard / WarpFactor);
                 Global.currentPlanet = Convert.ToByte(travelPlanet);
-                Gas = Gas - 2;
+                Menu.ClearMenuArea();
+                Console.WriteLine("Complete");
+                Console.WriteLine(Gas);
                 return;
             }
            
         }
 
-        static double GetWarp()
+        public double GetWarp()
         {
-            if (Origin == 1)
+            if (Global.origin == 1)
             {
                 return 2.0;
             }
-            if (Origin == 2)
+            if (Global.origin == 2)
             {
                 return 1.317;
             }
-            else
+            if (Global.origin == 3)
             {
                 return 1.621;
             }
+            else
+            {
+                return 1.0;
+            }
         }
 
-        static int GetGasTank()
+        static double GetTravelMultiplier()
         {
-            int gT = Origin * 10;
-            return gT;
+            switch (Global.origin)
+            {
+                case 1:
+                    return 2;
+                case 2:
+                    return 1.0;
+                case 3:
+                    return 1.5;
+
+            }
+            Menu.ClearMenuArea();
+            Console.WriteLine("...");
+            return .00;
         }
 
         public void TravelUI()
         {
-            List<string> planets = new List<string>() { " Earth", " Proxima Centauri 1", " Bernard's Star" };
+            List<string> planets = new List<string>() { "Earth", "Proxima Centauri 1", " Bernard's Star" };
 
             ConsoleKeyInfo consoleKeyInfo;
             int position = Global.currentPlanet;
+
+            Menu.ClearMenuArea();
 
             for (int i = 0; i < planets.Count; i++)
             {
 
                 if(i == position - 1)
                 {
-                    Console.BackgroundColor = ConsoleColor.Blue;
-                    Console.WriteLine(planets[i]);
-                    Console.ResetColor();
+                    if (i >= 3)
+                    {
+                        Console.WriteLine($" {planets[i]}");
+                        Console.BackgroundColor = ConsoleColor.Blue;
+                        Console.WriteLine($" {planets[i + 1]}");
+                        Console.ResetColor();
+                        i++;
+                    }
+                    else
+                    {
+                        Console.BackgroundColor = ConsoleColor.Blue;
+                        Console.WriteLine($" {planets[i]}");
+                        Console.ResetColor();
+
+
+                    }
                 }
                 else
                 {
@@ -105,19 +159,21 @@ namespace Space_Game
                 }
 
             }
-
             while ((consoleKeyInfo = Console.ReadKey()).Key != ConsoleKey.Enter)
             {
-                if(position == 4) { position = 0; }
+
+                Menu.ClearMenuArea();
+
+                if(position == Global.currentPlanet) { position++; }
+                if (position == 4) { position = 0; }
+                //if(position == 0) { position = 1; }
                 if (position == Global.currentPlanet)
                 {
                     if (position == 3) { position = 0; }
-
                     position++;
                 }
                     if (consoleKeyInfo.Key == ConsoleKey.DownArrow)
                     {
-                        Console.Clear();
                         if (position == 1)
                         {
                             Console.BackgroundColor = ConsoleColor.Blue;
@@ -126,7 +182,7 @@ namespace Space_Game
                         }
                         else
                         {
-                            Console.WriteLine("Earth");
+                            Console.WriteLine(" Earth");
                         }
                         if (position == 2)
                         {
@@ -142,23 +198,59 @@ namespace Space_Game
                         if (position == 3)
                         {
                             Console.BackgroundColor = ConsoleColor.Blue;
-                            Console.Write(" Bernard's Star 1");
+                            Console.Write(" Bernard's Star");
                             Console.ResetColor();
                             Console.WriteLine("");
                         }
                         else
                         {
-                            Console.WriteLine(" Bernard's Star 1");
+                            Console.WriteLine(" Bernard's Star");
                         }
-
-                    }
-                   
-                    
                     position++;
-                
-                
-                
+                    }
+
+                //if (consoleKeyInfo.Key == ConsoleKey.UpArrow)
+                //{
+                //    if(position == 0) { position = 3; }
+                //    if (position == 1)
+                //    {
+                //        Console.BackgroundColor = ConsoleColor.Blue;
+                //        Console.WriteLine(" Earth");
+                //        Console.ResetColor();
+                //    }
+                //    else
+                //    {
+                //        Console.WriteLine(" Earth");
+                //    }
+                //    if (position == 2)
+                //    {
+                //        Console.BackgroundColor = ConsoleColor.Blue;
+                //        Console.Write(" Proxima Centauri 1");
+                //        Console.ResetColor();
+                //        Console.WriteLine("");
+                //    }
+                //    else
+                //    {
+                //        Console.WriteLine(" Proxima Centauri 1");
+                //    }
+                //    if (position == 3)
+                //    {
+                //        Console.BackgroundColor = ConsoleColor.Blue;
+                //        Console.Write(" Bernard's Star 1");
+                //        Console.ResetColor();
+                //        Console.WriteLine("");
+                //    }
+                //    else
+                //    {
+                //        Console.WriteLine(" Bernard's Star 1");
+                //    }
+                //    position--;
+                //}
+
+            
             }
+            
+
             Travel(Global.currentPlanet, position);
             return;
 
@@ -169,7 +261,7 @@ namespace Space_Game
 
         public override string ToString()
         {
-            return $"Origin {Origin} WarpFactor {WarpFactor} Current Age {Age}";
+            return $"Global.origin {Global.origin} WarpFactor {WarpFactor} Current Global.age {Global.age}";
         }
     }
 }

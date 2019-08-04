@@ -10,9 +10,13 @@ namespace Space_Game
         //List<string> menu = new List<string>() {"Travel", "Buy", "Sell", "Refuel", "Exit" };
         public void KeyCatch(List<Product> inventories, List<Product> products)
         {
-            Spaceship userSpaceship = new Spaceship(1, Global.name);
+            Spaceship userSpaceship = new Spaceship();
 
             Welcome(inventories, userSpaceship);
+
+            ClearMenuArea();
+
+            OpenAndEndCredits.OpeningCredits();
 
             ClearMenuArea();
 
@@ -28,13 +32,14 @@ namespace Space_Game
 
             
             Shoping shoping = new Shoping(products);
-            Spaceship spaceship = new Spaceship(Global.origin, Global.name, Global.age);
+            Spaceship spaceship = new Spaceship();
             
             while ((consoleKeyInfo = Console.ReadKey()).Key != ConsoleKey.F12) //if pressed F12 close app
             {
                 switch (consoleKeyInfo.Key)
                 {
                     case ConsoleKey.F1://travel
+                        Cutscenes.DoIt();
                         spaceship.TravelUI();
                         break;
                     case ConsoleKey.F2://Buy
@@ -82,7 +87,7 @@ namespace Space_Game
 
                         break;
                     case ConsoleKey.F4://Refuel
-                        spaceship.ReFuel(planet.GetFuel(Global.currentPlanet));
+                        userSpaceship.ReFuel();
                         break;
                     case ConsoleKey.F5://About
                         About();

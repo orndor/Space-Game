@@ -14,7 +14,7 @@ namespace Space_Game
             //
 
             Console.WriteLine("Success1");
-            Spaceship spaceship = new Spaceship(1, "Luke");
+            Spaceship spaceship = new Spaceship();
             Console.WriteLine("Success1");
             spaceship.TravelUI();
             Console.WriteLine("Success1");

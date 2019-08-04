@@ -38,7 +38,7 @@ namespace Space_Game
             return PlanetName;
         }
 
-        public int GetFuel(int PlanetNum)
+        public static int GetFuel(int PlanetNum)
         {
             int price = 0;
             switch (PlanetNum)

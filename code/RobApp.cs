@@ -10,7 +10,7 @@ namespace Space_Game
         {
             Planet earth = new Planet();
 
-            Spaceship userSpaceship = new Spaceship(1, "Rob"); //<--This class appears to be broken
+            Spaceship userSpaceship = new Spaceship(); //<--This class appears to be broken
 
             Product product = new Product();
 
@@ -75,7 +75,7 @@ namespace Space_Game
             Console.WriteLine("-----===Player Stats===----");
             Console.ForegroundColor = ConsoleColor.White;
             Console.SetCursorPosition(122, 1);
-            Console.WriteLine($"           Age: {userSpaceship.Age}");
+            Console.WriteLine($"           Age: {Global.age}");
             Console.SetCursorPosition(122, 3);
             Console.WriteLine($"          Fuel: {userSpaceship.Gas}%");
             Console.SetCursorPosition(122, 5);
