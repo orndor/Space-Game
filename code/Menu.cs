@@ -46,13 +46,13 @@ namespace Space_Game
                         if (shoping.PrintBuyList(inventories))
                         {
                             ClearMenuArea();
-                            Console.SetCursorPosition(10, 10);
+                            Console.SetCursorPosition(20, 10);
                             PrintAnimation($"The item was added to your inventory");
                         }
                         else
                         {
                             ClearMenuArea();
-                            Console.SetCursorPosition(10, 10);
+                            Console.SetCursorPosition(20, 10);
                             PrintAnimation($"Soryy {Global.name}, but you don't have enough money to buy the item");                           
                         }
                         
@@ -61,28 +61,58 @@ namespace Space_Game
                         
                         App.PrintSideBottomMenu(inventories, userSpaceship);
                         
-                        Console.SetCursorPosition(10, 12);
+                        Console.SetCursorPosition(15, 12);
                         PrintAnimation($"{Global.name}, please select an action by pressing a key from the bellow menu");
                         break;
                     case ConsoleKey.F3://Sell
-                        shoping.PrintSellList(inventories);
-                        Console.Clear();
-                        Console.ResetColor();
+                        if (shoping.PrintSellList(inventories))
+                        {
+                            ClearMenuArea();
+                            Console.SetCursorPosition(10, 10);
+                            PrintAnimation($"The deal was successfully accomplished");
+                        }
+                        else
+                        {
+                            ClearMenuArea();
+                            Console.SetCursorPosition(10, 10);
+                            PrintAnimation($"Soryy {Global.name}, but you don't have any item for sell");
+                        }
+                        //Console.Clear();
+                        //Console.ResetColor();
                         PrintMenu();
                         
                         App.PrintSideBottomMenu(inventories, userSpaceship);
-                        Console.SetCursorPosition(0, 0);
+                        Console.SetCursorPosition(10, 12);
+                        PrintAnimation($"{Global.name}, please select an action by pressing a key from the bellow menu");
+
                         break;
                     case ConsoleKey.F4://Refuel
                         userSpaceship.ReFuel();
                         break;
+                    case ConsoleKey.F5://About
+                        About();
+                        break;
 
                     default:
-
+                        Console.Write("\b \b");
                         break;
                 }
             }
            
+        }
+
+        private void About()
+        {
+            ClearMenuArea();
+            Console.SetCursorPosition(50, 2);
+            PrintAnimation("Space Game version 1.00");
+            Console.SetCursorPosition(50, 4);
+            PrintAnimation("Copyright (c) 2019 MSSA");
+            Console.SetCursorPosition(48, 6);
+            PrintAnimation("Developers: Luck, Rob, Shod");
+            Console.SetCursorPosition(25, 20);
+            PrintAnimation($"{Global.name}, please select an action by pressing a key from the bellow menu");
+
         }
 
         public void PrintMenu() //This method print -ItemsPerPage- and Menu
@@ -93,6 +123,7 @@ namespace Space_Game
             Console.Write(" || F2. Buy");
             Console.Write(" || F3. Sell");
             Console.Write(" || F4. Refuel");
+            Console.Write(" || F5. About");
             Console.WriteLine(" || F12. Exit");
             Console.WriteLine(new string('=', 120));
         }
