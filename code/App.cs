@@ -65,15 +65,15 @@ namespace Space_Game
             Console.WriteLine($"----==={Global.name}'s Stats===----".PadRight(28));
             Console.ForegroundColor = ConsoleColor.White;
             Console.SetCursorPosition(122, 1);
-            Console.WriteLine($"     Age: {Global.age}");
+            Console.WriteLine($"     Age: {Global.age}".PadRight(28));
             Console.SetCursorPosition(122, 3);
-            Console.WriteLine($"    Fuel: {Global.gas}");
+            Console.WriteLine($"    Fuel: {Global.gas}".PadRight(28));
             Console.SetCursorPosition(122, 5);
-            Console.WriteLine($"  Wallet: {Global.money} Cubits");
+            Console.WriteLine($"  Wallet: {Global.money} Cubits".PadRight(28));
             Console.SetCursorPosition(122, 7);
             Console.WriteLine($"Location: {currentPlanetName.PadRight(28)}");
             Console.SetCursorPosition(122, 9);
-            Console.WriteLine($"Max Warp: {userSpaceship.GetWarp()}");
+            Console.WriteLine($"Max Warp: {userSpaceship.GetWarp()}".PadRight(28));
             Console.SetCursorPosition(122,11);
 
 
