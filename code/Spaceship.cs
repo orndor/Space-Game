@@ -53,10 +53,6 @@ namespace Space_Game
                 Global.age = Convert.ToByte(Global.age + EarthToPC1 / WarpFactor);
                 Global.currentPlanet = Convert.ToByte(travelPlanet);
                 Menu.ClearMenuArea();
-                Console.WriteLine("Gas");
-                Console.WriteLine(Global.gas);
-                Console.WriteLine("global age");
-                Console.WriteLine(Global.age);
                 return;
             }
             if (currentPlanet == 1 && travelPlanet == 3 || currentPlanet == 3 && travelPlanet == 1)
@@ -68,10 +64,6 @@ namespace Space_Game
                 Global.age = age;
                 Global.currentPlanet = Convert.ToByte(travelPlanet);
                 Menu.ClearMenuArea();
-                Console.WriteLine("Gas");
-                Console.WriteLine(Global.gas);
-                Console.WriteLine("global age");
-                Console.WriteLine(Global.age);
                 return;
             }
             if (currentPlanet == 2 && travelPlanet == 3 || currentPlanet == 3 && travelPlanet == 2)
@@ -83,10 +75,6 @@ namespace Space_Game
                 Global.age = age;
                 Global.currentPlanet = Convert.ToByte(travelPlanet);
                 Menu.ClearMenuArea();
-                Console.WriteLine("Gas");
-                Console.WriteLine(Global.gas);
-                Console.WriteLine("global age");
-                Console.WriteLine(Global.age);
                 return;
             }
            
@@ -108,6 +96,8 @@ namespace Space_Game
             }
             else
             {
+                Menu.ClearMenuArea();
+                Console.WriteLine("...");
                 return 1.0;
             }
         }
@@ -126,7 +116,7 @@ namespace Space_Game
             }
             Menu.ClearMenuArea();
             Console.WriteLine("...");
-            return .00;
+            return 1.0;
         }
 
         public void TravelUI()

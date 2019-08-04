@@ -40,6 +40,7 @@ namespace Space_Game
                 {
                     case ConsoleKey.F1://travel
                         spaceship.TravelUI();
+                        App.PrintSideBottomMenu(inventories, spaceship);
                         //Cutscenes.DoIt();
                         break;
                     case ConsoleKey.F2://Buy
