@@ -46,21 +46,24 @@ namespace Space_Game
             Global.money += item.Price;
         }
 
-        public void PrintSellList(List<Product> inventory)
+        public bool PrintSellList(List<Product> inventory)
         {
             if (inventory.Count <= 0)
             {
-                Console.WriteLine("Inventory is empty!");
+                //Console.WriteLine("Inventory is empty!");
+                return false;
             }
             else
             {
                 menuList.Clear();
+                Menu.ClearMenuArea();
                 foreach (var item in inventory)
                 { 
                     Console.WriteLine($"{item.ProductName} {item.Price}");
                     menuList.Add(item);
                 }
                 Sell(inventory, Navigation(inventory));
+                return true;
             }
             
         }
@@ -98,12 +101,13 @@ namespace Space_Game
             //for (int x = 0; x < 5; x++) menuList[x] = x;
             //foreach (var i in menuList) Console.WriteLine(i);
 
-            Console.SetCursorPosition(0, 0);
+           // Console.SetCursorPosition(0, 0);
 
             while ((consoleKeyInfo = Console.ReadKey()).Key != ConsoleKey.Enter)
             {
-                if (consoleKeyInfo.Key == ConsoleKey.DownArrow)
+                switch(consoleKeyInfo.Key)//if (consoleKeyInfo.Key == ConsoleKey.DownArrow)
                 {
+                    case ConsoleKey.DownArrow:
                     index++;
                     if (index >= 0 && index < menuList.Count)
                     {
@@ -133,25 +137,31 @@ namespace Space_Game
                         //Console.Write("\r" + new string(' ', Convert.ToString(menuList[index]).Length) + "\r"); // Clear current line
                         Console.Write($"{menuList[index].ProductName} {menuList[index].Price}".PadRight(119, ' '));
                     }
-                }
-                else if (consoleKeyInfo.Key == ConsoleKey.UpArrow) // Up arrow is intended to work only, when the index is greater than 0 (so the second or greater option is selected)
-                {
-                    if (index > 0) index--;
-                    if (index >= 0 && index < menuList.Count)
-                    {
-                        // Same as above
-                        Console.SetCursorPosition(0, index + 1);
-                        Console.ResetColor();
-                        //Console.Write("\r" + new string(' ', Convert.ToString(menuList[index + 1]).Length) + "\r");
-                        Console.Write($"{menuList[index+1].ProductName} {menuList[index+1].Price}".PadRight(119, ' '));
+                        break;
+                    case ConsoleKey.UpArrow:
+                        if (index > 0) index--;
+                        if (index >= 0 && index < menuList.Count)
+                        {
+                            // Same as above
+                            Console.SetCursorPosition(0, index + 1);
+                            Console.ResetColor();
+                            //Console.Write("\r" + new string(' ', Convert.ToString(menuList[index + 1]).Length) + "\r");
+                            Console.Write($"{menuList[index + 1].ProductName} {menuList[index + 1].Price}".PadRight(119, ' '));
 
-                        Console.SetCursorPosition(0, index);
-                        Console.ResetColor();
-                        Console.BackgroundColor = ConsoleColor.Blue;
-                        //Console.Write("\r" + new string(' ', Convert.ToString(menuList[index]).Length) + "\r");
-                        Console.Write($"{menuList[index].ProductName} {menuList[index].Price}".PadRight(119, ' '));
-                    }
+                            Console.SetCursorPosition(0, index);
+                            Console.ResetColor();
+                            Console.BackgroundColor = ConsoleColor.Blue;
+                            //Console.Write("\r" + new string(' ', Convert.ToString(menuList[index]).Length) + "\r");
+                            Console.Write($"{menuList[index].ProductName} {menuList[index].Price}".PadRight(119, ' '));
+                        }
+                        break;
+                    default:
+                        Console.Write("\b \b");
+                        break;
+
                 }
+                //else if (consoleKeyInfo.Key == ConsoleKey.UpArrow) // Up arrow is intended to work only, when the index is greater than 0 (so the second or greater option is selected)
+               
             }
             //Buy(inventory, menuList[index]);
             Console.ResetColor();
