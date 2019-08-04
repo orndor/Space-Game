@@ -39,8 +39,8 @@ namespace Space_Game
                 switch (consoleKeyInfo.Key)
                 {
                     case ConsoleKey.F1://travel
-                        Cutscenes.DoIt();
                         spaceship.TravelUI();
+                        //Cutscenes.DoIt();
                         break;
                     case ConsoleKey.F2://Buy
                         if (shoping.PrintBuyList(inventories))
