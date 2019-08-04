@@ -46,7 +46,6 @@ namespace Space_Game
             int numOfStyrofoam = 0;
             int numOfOatmeal = 0;
             int numOfLightBulbs = 0;
-            double warpSpeed = userSpaceship.WarpFactor;
 
             for (int i = 0; i < 31; i++)
             {
@@ -74,7 +73,7 @@ namespace Space_Game
             Console.SetCursorPosition(122, 7);
             Console.WriteLine($"Location: {currentPlanetName.PadRight(28)}");
             Console.SetCursorPosition(122, 9);
-            Console.WriteLine($"Max Warp: {warpSpeed}");
+            Console.WriteLine($"Max Warp: {userSpaceship.GetWarp()}");
             Console.SetCursorPosition(122,11);
 
 
