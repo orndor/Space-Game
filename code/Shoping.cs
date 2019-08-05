@@ -42,7 +42,7 @@ namespace Space_Game
 
         public bool Buy(List<Product> inventory, Product item)
         {
-            if (item.Price <= Global.money)
+            if (item != null && item.Price <= Global.money)
             {
                 Global.money -= item.Price;
                 inventory.Add(item);
@@ -54,10 +54,16 @@ namespace Space_Game
             }
         }
 
-        public void Sell(List<Product> inventory, Product item)
+        public bool Sell(List<Product> inventory, Product item)
         {
-            inventory.Remove(item);
-            Global.money += item.Price;
+            if(item!=null)
+            {
+                inventory.Remove(item);
+                Global.money += item.Price;
+                return true;
+            }
+            return false;
+            
         }
 
         public bool PrintSellList(List<Product> inventory)
@@ -78,8 +84,8 @@ namespace Space_Game
                     Console.WriteLine($"{item.ProductName} {item.Price}");
                     menuList.Add(item);
                 }
-                Sell(inventory, Navigation(inventory));
-                return true;
+                return Sell(inventory, Navigation(inventory));
+                
             }
             
         }
@@ -102,7 +108,7 @@ namespace Space_Game
 
         Product Navigation(List<Product> inventory)
         {
-            ConsoleKeyInfo consoleKeyInfo;
+            //ConsoleKeyInfo consoleKeyInfo;
             //int[] menuList = new int[5];
            
             int index = 0;
@@ -112,16 +118,18 @@ namespace Space_Game
                 Console.BackgroundColor = ConsoleColor.Blue;
                 //Console.Write("\r" + new string(' ', Convert.ToString(menuList[index]).Length) + "\r"); // Clear current line
                 Console.Write($"{menuList[index].ProductName} {menuList[index].Price}".PadRight(119, ' ')); // Rewrite it with matching index array item
-            
+
 
             //for (int x = 0; x < 5; x++) menuList[x] = x;
             //foreach (var i in menuList) Console.WriteLine(i);
 
-           // Console.SetCursorPosition(0, 0);
+            // Console.SetCursorPosition(0, 0);
+            bool exit = false;
 
-            while ((consoleKeyInfo = Console.ReadKey()).Key != ConsoleKey.Enter)
+            while (!exit )
             {
-                switch(consoleKeyInfo.Key)//if (consoleKeyInfo.Key == ConsoleKey.DownArrow)
+                
+                switch (Console.ReadKey().Key)//if (consoleKeyInfo.Key == ConsoleKey.DownArrow)
                 {
                     case ConsoleKey.DownArrow:
                     index++;
@@ -184,6 +192,14 @@ namespace Space_Game
                             Console.Write($"{menuList[index].ProductName} {menuList[index].Price}".PadRight(119, ' '));
                         }
                         break;
+                    case ConsoleKey.Escape:
+                        exit = true;                       
+                        break;
+                    case ConsoleKey.Enter:
+                        exit = true;
+                        Console.ResetColor();
+                        return menuList[index];
+                        break;
                     default:
                         Console.Write("\b \b");
                         break;
@@ -193,9 +209,10 @@ namespace Space_Game
                
             }
             //Buy(inventory, menuList[index]);
+            //if (exit) Console.WriteLine("esc");
             Console.ResetColor();
+            return null;
 
-            return menuList[index];
         }
 
     }

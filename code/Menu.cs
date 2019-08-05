@@ -52,9 +52,10 @@ namespace Space_Game
                         }
                         else
                         {
-                            ClearMenuArea();
-                            Console.SetCursorPosition(20, 10);
-                            PrintAnimation($"Soryy {Global.name}, but you don't have enough money to buy the item");                           
+                            //ClearMenuArea();
+                            Console.Clear();
+                            Console.SetCursorPosition(25, 10);
+                            Console.Write($" Soryy {Global.name}, the transaction wasn't processed");                           
                         }
                         
                         //Console.ResetColor();
@@ -62,7 +63,7 @@ namespace Space_Game
                         
                         App.PrintSideBottomMenu(inventories, userSpaceship);
                         
-                        Console.SetCursorPosition(15, 12);
+                        Console.SetCursorPosition(20, 12);
                         PrintAnimation($"{Global.name}, please select an action by pressing a key from the bellow menu");
                         break;
                     case ConsoleKey.F3://Sell
@@ -74,9 +75,9 @@ namespace Space_Game
                         }
                         else
                         {
-                            ClearMenuArea();
+                            Console.Clear();
                             Console.SetCursorPosition(10, 10);
-                            PrintAnimation($"Soryy {Global.name}, but you don't have any item for sell");
+                            Console.WriteLine($" Sory {Global.name}, the transaction wasn't processed");
                         }
                         //Console.Clear();
                         //Console.ResetColor();
