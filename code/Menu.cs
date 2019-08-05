@@ -154,7 +154,7 @@ namespace Space_Game
         {
             Console.ResetColor();
             Console.SetCursorPosition(0, 0);
-            for (int i = 0; i < 25; i++)
+            for (int i = 0; i < 26; i++)
             {
                 Console.WriteLine(new string(' ', 120));
             }
