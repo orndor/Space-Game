@@ -10,8 +10,19 @@ namespace Space_Game
 {
     class Cutscenes
     {
+        public static void PrintAnimation(string txt)
+        {
+            for (int i = 0; i < txt.Length; i++)
+            {
+                Console.Write(txt[i]);
+                Thread.Sleep(1);
+            }
+        }
         public static void EarthCutScene()
         {
+            string earthNear = $"                  \n\nYou are now approaching {Planet.GetPlanetName(1)}";
+            Cutscenes.PrintAnimation(earthNear);
+            Thread.Sleep(1000);
             string path = Path.Combine(Directory.GetCurrentDirectory(), "..\\..\\..\\..\\images/Earth.bmp");
             Menu.ClearMenuArea();
             Console.SetCursorPosition(0, 0);
@@ -32,6 +43,9 @@ namespace Space_Game
 
         public static void BarnardCutscene()
         {
+            string barnardNear = $"                  \n\nYou are now approaching {Planet.GetPlanetName(3)}";
+            Cutscenes.PrintAnimation(barnardNear);
+            Thread.Sleep(1000);
             string path = Path.Combine(Directory.GetCurrentDirectory(), "..\\..\\..\\..\\images/Barnard.bmp");
             Menu.ClearMenuArea();
             Console.SetCursorPosition(1, 1);
@@ -50,6 +64,9 @@ namespace Space_Game
 
         public static void ProximaCutscene()
         {
+            string proximaNear = $"                  \n\nYou are now approaching {Planet.GetPlanetName(2)}";
+            Cutscenes.PrintAnimation(proximaNear);
+            Thread.Sleep(1000);
             string path = Path.Combine(Directory.GetCurrentDirectory(), "..\\..\\..\\..\\images/Proxima.bmp");
             Menu.ClearMenuArea();
             Console.SetCursorPosition(0, 0);

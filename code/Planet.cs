@@ -18,7 +18,7 @@ namespace Space_Game
         //}
 
 
-        public string GetPlanetName(byte PlanetNum)
+        public static string GetPlanetName(byte PlanetNum)
         {
 
             string PlanetName = "Earth";
