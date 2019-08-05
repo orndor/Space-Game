@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Space_Game
@@ -12,14 +13,27 @@ namespace Space_Game
         {
             market = products;
         }
-        public Product FindPrice(string productName)
+        //public Product FindPrice(string productName)
+        //{
+        //    Product item = new Product() { ProductName = "Gold", Price = 100, Planet = 1 };
+        //    foreach (Product i in market)
+        //    {
+        //        if ((i.ProductName == productName) && (i.Planet == Global.currentPlanet))
+        //        {
+        //            item = i;
+        //            break;
+        //        }
+        //    }
+        //    return item;
+        //}
+        public Product FindPrice(Product item)
         {
-            Product item=new Product() { ProductName = "Gold", Price = 100, Planet = 1 };
+            //Product item = new Product() { ProductName = "Gold", Price = 100, Planet = 1 };
             foreach (Product i in market)
             {
-                if ((i.ProductName == productName) && (i.Planet == Global.currentPlanet))
+                if ((i.ProductName == item.ProductName) && (i.Planet == Global.currentPlanet))
                 {
-                    item=i;
+                    item = i;
                     break;
                 }
             }
@@ -48,6 +62,7 @@ namespace Space_Game
 
         public bool PrintSellList(List<Product> inventory)
         {
+            
             if (inventory.Count <= 0)
             {
                 //Console.WriteLine("Inventory is empty!");
@@ -58,7 +73,8 @@ namespace Space_Game
                 menuList.Clear();
                 Menu.ClearMenuArea();
                 foreach (var item in inventory)
-                { 
+                {
+                    item.Price = FindPrice(item).Price;
                     Console.WriteLine($"{item.ProductName} {item.Price}");
                     menuList.Add(item);
                 }
