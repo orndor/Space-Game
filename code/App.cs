@@ -46,6 +46,8 @@ namespace Space_Game
             int numOfStyrofoam = 0;
             int numOfOatmeal = 0;
             int numOfLightBulbs = 0;
+            int numOfHeartOfGold = 0;
+            int currentAge = Global.age;
 
             for (int i = 0; i < 31; i++)
             {
@@ -109,6 +111,11 @@ namespace Space_Game
                 if (inventories[i].ProductName == "Light Bulbs")
                     numOfLightBulbs += 1;
             }
+            for (int i = 0; i < inventories.Count; i++)
+            {
+                if (inventories[i].ProductName == "Heart of Gold Spaceship")
+                    numOfHeartOfGold += 1;
+            }
 
             for (int i = 0; i < 150; i++)
             {
@@ -136,6 +143,29 @@ namespace Space_Game
             Console.WriteLine($" ");
             Console.WriteLine($" ");
             Console.WriteLine($" ");
+
+            if (numOfHeartOfGold >= 1)
+            {
+                Menu.ClearMenuArea();
+                OpenAndEndCredits.WinEndingCredits();
+                Console.SetCursorPosition(20, 10);
+                Console.WriteLine("Press the Space Bar to exit the game.");
+                while (Console.ReadKey(true).Key != ConsoleKey.Spacebar);
+                Console.Clear();
+                Environment.Exit(0);
+
+            }
+            if (currentAge == 60 || Global.money == 0 && numOfGold == 0 && numOfLightBulbs == 0 && numOfLiquidSoap == 0 && numOfOatmeal == 0 && numOfwater == 0 && numOfStyrofoam == 0)
+            {
+                Menu.ClearMenuArea();
+                OpenAndEndCredits.LoseEndingCredits();
+                Console.SetCursorPosition(20, 10);
+                Console.WriteLine("Press the Space Bar to exit the game.");
+                while (Console.ReadKey(true).Key != ConsoleKey.Spacebar) ;
+                Console.Clear();
+                Environment.Exit(0);
+            }
         }
+        
     }
 }
