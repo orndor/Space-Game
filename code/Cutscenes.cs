@@ -12,53 +12,56 @@ namespace Space_Game
     {
         public static void EarthCutScene()
         {
+            string path = Path.Combine(Directory.GetCurrentDirectory(), "..\\..\\..\\..\\images/Earth.bmp");
             Menu.ClearMenuArea();
             Console.SetCursorPosition(0, 0);
-            Bitmap bmpSrc = new Bitmap(@"C:\Users\lukep\OneDrive\MSSA Class\Week 5\earthBMP.bmp", true);
+            Bitmap bmpSrc = new Bitmap(path, true);
             ConsoleWriteImage(bmpSrc);
             Thread.Sleep(1000);
             Console.SetCursorPosition(0, 0);
-            Bitmap bmpSrc1 = new Bitmap(@"C:\Users\lukep\OneDrive\MSSA Class\Week 5\earthBMP.bmp", true);
+            Bitmap bmpSrc1 = new Bitmap(path, true);
             ConsoleWriteImage2(bmpSrc1);
             Thread.Sleep(1000);
             Console.SetCursorPosition(0, 0);
-            Bitmap bmpSrc2 = new Bitmap(@"C:\Users\lukep\OneDrive\MSSA Class\Week 5\earthBMP.bmp", true);
+            Bitmap bmpSrc2 = new Bitmap(path, true);
             ConsoleWriteImage3(bmpSrc2);
             Thread.Sleep(1000);
 
 
         }
 
-        public static void BernardCutscene()
+        public static void BarnardCutscene()
         {
+            string path = Path.Combine(Directory.GetCurrentDirectory(), "..\\..\\..\\..\\images/Barnard.bmp");
             Menu.ClearMenuArea();
-            Console.SetCursorPosition(0, 0);
-            Bitmap bmpSrc = new Bitmap(@"C:\Users\lukep\OneDrive\MSSA Class\Week 5\Bernard's Star 1.bmp", true);
+            Console.SetCursorPosition(1, 1);
+            Bitmap bmpSrc = new Bitmap(path, true);
             ConsoleWriteImage(bmpSrc);
             Thread.Sleep(1000);
-            Console.SetCursorPosition(0, 0);
-            Bitmap bmpSrc1 = new Bitmap(@"C:\Users\lukep\OneDrive\MSSA Class\Week 5\Bernard's Star 1.bmp", true);
+            Console.SetCursorPosition(1, 1);
+            Bitmap bmpSrc1 = new Bitmap(path, true);
             ConsoleWriteImage2(bmpSrc1);
             Thread.Sleep(1000);
-            Console.SetCursorPosition(0, 0);
-            Bitmap bmpSrc2 = new Bitmap(@"C:\Users\lukep\OneDrive\MSSA Class\Week 5\Bernard's Star 1.bmp", true);
+            Console.SetCursorPosition(1, 1);
+            Bitmap bmpSrc2 = new Bitmap(path, true);
             ConsoleWriteImage3(bmpSrc2);
             Thread.Sleep(1000);
         }
 
         public static void ProximaCutscene()
         {
+            string path = Path.Combine(Directory.GetCurrentDirectory(), "..\\..\\..\\..\\images/Proxima.bmp");
             Menu.ClearMenuArea();
             Console.SetCursorPosition(0, 0);
-            Bitmap bmpSrc = new Bitmap(@"C:\Users\lukep\OneDrive\MSSA Class\Week 5\Proxima3.bmp", true);
+            Bitmap bmpSrc = new Bitmap(path, true);
             ConsoleWriteImage(bmpSrc);
             Thread.Sleep(1000);
             Console.SetCursorPosition(0, 0);
-            Bitmap bmpSrc1 = new Bitmap(@"C:\Users\lukep\OneDrive\MSSA Class\Week 5\Proxima3.bmp", true);
+            Bitmap bmpSrc1 = new Bitmap(path, true);
             ConsoleWriteImage2(bmpSrc1);
             Thread.Sleep(1000);
             Console.SetCursorPosition(0, 0);
-            Bitmap bmpSrc2 = new Bitmap(@"C:\Users\lukep\OneDrive\MSSA Class\Week 5\Proxima3.bmp", true);
+            Bitmap bmpSrc2 = new Bitmap(path, true);
             ConsoleWriteImage3(bmpSrc2);
             Thread.Sleep(1000);
         }

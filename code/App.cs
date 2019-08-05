@@ -9,6 +9,7 @@ namespace Space_Game
         
         public void Run()
         {
+
             Planet earth = new Planet();
 
             Spaceship userSpaceship = new Spaceship(); //<--This class appears to be broken
