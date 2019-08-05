@@ -10,7 +10,7 @@ namespace Space_Game
 {
     class Cutscenes
     {
-        public static void DoIt()
+        public static void EarthCutScene()
         {
             Menu.ClearMenuArea();
             Console.SetCursorPosition(0, 0);
@@ -27,6 +27,40 @@ namespace Space_Game
             Thread.Sleep(1000);
 
 
+        }
+
+        public static void BernardCutscene()
+        {
+            Menu.ClearMenuArea();
+            Console.SetCursorPosition(0, 0);
+            Bitmap bmpSrc = new Bitmap(@"C:\Users\lukep\OneDrive\MSSA Class\Week 5\Bernard's Star 1.bmp", true);
+            ConsoleWriteImage(bmpSrc);
+            Thread.Sleep(1000);
+            Console.SetCursorPosition(0, 0);
+            Bitmap bmpSrc1 = new Bitmap(@"C:\Users\lukep\OneDrive\MSSA Class\Week 5\Bernard's Star 1.bmp", true);
+            ConsoleWriteImage2(bmpSrc1);
+            Thread.Sleep(1000);
+            Console.SetCursorPosition(0, 0);
+            Bitmap bmpSrc2 = new Bitmap(@"C:\Users\lukep\OneDrive\MSSA Class\Week 5\Bernard's Star 1.bmp", true);
+            ConsoleWriteImage3(bmpSrc2);
+            Thread.Sleep(1000);
+        }
+
+        public static void ProximaCutscene()
+        {
+            Menu.ClearMenuArea();
+            Console.SetCursorPosition(0, 0);
+            Bitmap bmpSrc = new Bitmap(@"C:\Users\lukep\OneDrive\MSSA Class\Week 5\Proxima3.bmp", true);
+            ConsoleWriteImage(bmpSrc);
+            Thread.Sleep(1000);
+            Console.SetCursorPosition(0, 0);
+            Bitmap bmpSrc1 = new Bitmap(@"C:\Users\lukep\OneDrive\MSSA Class\Week 5\Proxima3.bmp", true);
+            ConsoleWriteImage2(bmpSrc1);
+            Thread.Sleep(1000);
+            Console.SetCursorPosition(0, 0);
+            Bitmap bmpSrc2 = new Bitmap(@"C:\Users\lukep\OneDrive\MSSA Class\Week 5\Proxima3.bmp", true);
+            ConsoleWriteImage3(bmpSrc2);
+            Thread.Sleep(1000);
         }
 
         static int[] cColors = { 0x000000, 0x000080, 0x008000, 0x008080, 0x800000, 0x800080, 0x808000, 0xC0C0C0, 0x808080, 0x0000FF, 0x00FF00, 0x00FFFF, 0xFF0000, 0xFF00FF, 0xFFFF00, 0xFFFFFF };

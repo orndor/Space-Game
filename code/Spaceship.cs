@@ -26,7 +26,7 @@ namespace Space_Game
             
             if(diff == 0){ Menu.ClearMenuArea(); Console.WriteLine("Gas is already Full"); return;}
             
-            for(int i = 0; i <= diff; i++)
+            for(int i = 0; i < diff; i++)
             {
                 if (Global.money < fuelPrice)
                 {
