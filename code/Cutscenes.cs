@@ -37,7 +37,10 @@ namespace Space_Game
             Bitmap bmpSrc2 = new Bitmap(path, true);
             ConsoleWriteImage3(bmpSrc2);
             Thread.Sleep(1000);
-
+            Menu.ClearMenuArea();
+            string earthDescription = $"                  Welcome to {Planet.GetPlanetName(1)}.\n                  Earth is no longer a lush, green, wet planet, but now is a dry and grimy industrial powerhouse. \n                  Its primary output is Styrofoam and liquid soap.";
+            Cutscenes.PrintAnimation(earthDescription);
+            Thread.Sleep(1000);
 
         }
 
@@ -60,6 +63,10 @@ namespace Space_Game
             Bitmap bmpSrc2 = new Bitmap(path, true);
             ConsoleWriteImage3(bmpSrc2);
             Thread.Sleep(1000);
+            Menu.ClearMenuArea();
+            string barnardDescription = $"                  Welcome to {Planet.GetPlanetName(1)}.\n                  Bernard's Star B is a cold, dry, and dark planet, inhabited by short furry creatures known as ALFs.  However, they have mastered the ability for producing oatmeal cream pies, which all of the planets desire. \n                  The planet has a natural abundance of gold, which they consider worthless on their own planet, but know that humans from Earth value it for some reason.\n                  They primarily desire lightbulbs for not only lighting their dark planet, but as a primary food source.  The many attempts by the ALFs to manufacture lightbulbs to supply their own needs always fail; they eat them before they can develop sufficient enough quantities to fulfill demand.";
+            Cutscenes.PrintAnimation(barnardDescription);
+            Thread.Sleep(1000);
         }
 
         public static void ProximaCutscene()
@@ -80,6 +87,10 @@ namespace Space_Game
             Console.SetCursorPosition(0, 0);
             Bitmap bmpSrc2 = new Bitmap(path, true);
             ConsoleWriteImage3(bmpSrc2);
+            Thread.Sleep(1000);
+            Menu.ClearMenuArea();
+            string proximaDescription = $"                  Welcome to {Planet.GetPlanetName(1)}.\n                  Proxima Centauri 1 is a windy, wet, and warm planet inhabited by a race of beings known as Cylons.\n                  Their chief export is lightbulbs, which the Star B's devour and pay a premium for.  Their other primary export is water; which Earth requires to survive but is extremely heavy and difficult to ship. \n                  They subsist off liquid soap, oatmeal cream pies, and enjoy long walks on the beach.";
+            Cutscenes.PrintAnimation(proximaDescription);
             Thread.Sleep(1000);
         }
 
