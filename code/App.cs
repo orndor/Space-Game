@@ -59,7 +59,7 @@ namespace Space_Game
             //Put current planet, Age, Fuel level, and Money in the right box.
 
             Planet currentPlanet = new Planet();
-            string currentPlanetName = currentPlanet.GetPlanetName(Global.currentPlanet);
+            string currentPlanetName = Planet.GetPlanetName(Global.currentPlanet);
 
 
             Console.ForegroundColor = ConsoleColor.DarkYellow;
@@ -73,7 +73,7 @@ namespace Space_Game
             Console.SetCursorPosition(122, 5);
             Console.WriteLine($"  Wallet: {Global.money} Cubits".PadRight(28));
             Console.SetCursorPosition(122, 7);
-            Console.WriteLine($"Location: {currentPlanetName.PadRight(28)}");
+            Console.WriteLine($"Location: {currentPlanetName.PadRight(18)}");
             Console.SetCursorPosition(122, 9);
             Console.WriteLine($"Max Warp: {userSpaceship.GetWarp()}".PadRight(28));
             Console.SetCursorPosition(122,11);
