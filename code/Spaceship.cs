@@ -124,137 +124,143 @@ namespace Space_Game
             List<string> planets = new List<string>() { "Earth", "Proxima Centauri 1", " Bernard's Star" };
 
             ConsoleKeyInfo consoleKeyInfo;
-            int position = Global.currentPlanet;
+            int position = -1;
 
             Menu.ClearMenuArea();
 
-            for (int i = 0; i < planets.Count; i++)
-            {
 
-                if(i == position - 1)
-                {
-                    if (i >= 3)
-                    {
-                        Console.WriteLine($" {planets[i]}");
-                        Console.BackgroundColor = ConsoleColor.Blue;
-                        Console.WriteLine($" {planets[i + 1]}");
-                        Console.ResetColor();
-                        i++;
-                    }
-                    else
-                    {
-                        Console.BackgroundColor = ConsoleColor.Blue;
-                        Console.WriteLine($" {planets[i]}");
-                        Console.ResetColor();
-
-
-                    }
-                }
-                else
-                {
-                    Console.WriteLine(planets[i]);
-                }
-
-            }
             while ((consoleKeyInfo = Console.ReadKey()).Key != ConsoleKey.Enter)
             {
 
-                Menu.ClearMenuArea();
+               
+                
 
-                if(position == Global.currentPlanet) { position++; }
-                if (position == 4) { position = 0; }
-                //if(position == 0) { position = 1; }
-                if (position == Global.currentPlanet)
+
+                if (consoleKeyInfo.Key == ConsoleKey.DownArrow)
                 {
-                    if (position == 3) { position = 0; }
+                    if (position + 1 == planets.Count) { position = -1; }
+
                     position++;
-                }
-                    if (consoleKeyInfo.Key == ConsoleKey.DownArrow)
+
+                    if (position + 1 != planets.Count)
                     {
-                        if (position == 1)
+                        for (int i = 0; i < planets.Count; i++)
                         {
-                            Console.BackgroundColor = ConsoleColor.Blue;
-                            Console.WriteLine(" Earth");
-                            Console.ResetColor();
+                            
+                            if (position + 1 == Global.currentPlanet)
+                            {
+                                Console.WriteLine($"Current Planet: {planets[position]}");
+                            }
+                            else
+                            {
+                                if (i == position)
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Blue;
+                                    Console.WriteLine($"          {planets[i]}");
+                                    Console.ResetColor();
+                                }
+                                else
+                                {
+                                    Console.WriteLine($"          {planets[i]}");
+                                }
+                            }
+                            i++;
                         }
-                        else
-                        {
-                            Console.WriteLine(" Earth");
-                        }
-                        if (position == 2)
-                        {
-                            Console.BackgroundColor = ConsoleColor.Blue;
-                            Console.Write(" Proxima Centauri 1");
-                            Console.ResetColor();
-                            Console.WriteLine("");
-                        }
-                        else
-                        {
-                            Console.WriteLine(" Proxima Centauri 1");
-                        }
-                        if (position == 3)
-                        {
-                            Console.BackgroundColor = ConsoleColor.Blue;
-                            Console.Write(" Bernard's Star");
-                            Console.ResetColor();
-                            Console.WriteLine("");
-                        }
-                        else
-                        {
-                            Console.WriteLine(" Bernard's Star");
-                        }
-                    position++;
                     }
+                    
+                }
 
-                //if (consoleKeyInfo.Key == ConsoleKey.UpArrow)
-                //{
-                //    if(position == 0) { position = 3; }
-                //    if (position == 1)
-                //    {
-                //        Console.BackgroundColor = ConsoleColor.Blue;
-                //        Console.WriteLine(" Earth");
-                //        Console.ResetColor();
-                //    }
-                //    else
-                //    {
-                //        Console.WriteLine(" Earth");
-                //    }
-                //    if (position == 2)
-                //    {
-                //        Console.BackgroundColor = ConsoleColor.Blue;
-                //        Console.Write(" Proxima Centauri 1");
-                //        Console.ResetColor();
-                //        Console.WriteLine("");
-                //    }
-                //    else
-                //    {
-                //        Console.WriteLine(" Proxima Centauri 1");
-                //    }
-                //    if (position == 3)
-                //    {
-                //        Console.BackgroundColor = ConsoleColor.Blue;
-                //        Console.Write(" Bernard's Star 1");
-                //        Console.ResetColor();
-                //        Console.WriteLine("");
-                //    }
-                //    else
-                //    {
-                //        Console.WriteLine(" Bernard's Star 1");
-                //    }
-                //    position--;
-                //}
-
-            
             }
-            
-
             Travel(Global.currentPlanet, position);
             return;
 
-
-
-
         }
+
+
+
+
+
+
+
+        /*
+                        if (Global.currentPlanet == 1)
+                            {
+                                switch (position)
+                                {
+                                    case 1:
+                                        break;
+                                    case 2:
+                                        break;
+                                }
+                            }
+                            if(Global.currentPlanet == 2)
+                            {
+                                switch (position)
+                                {
+                                    case 1:
+                                        break;
+                                    case 2:
+                                        break;
+
+                                }
+
+                            }
+                            if(Global.currentPlanet == 3)
+                            {
+                                switch (position)
+                                {
+                                    case 1:
+                                        break;
+                                    case2:
+                                        break;
+
+                                }
+
+                            }
+                            position++;
+                            }
+                            */
+
+
+        //if (consoleKeyInfo.Key == ConsoleKey.UpArrow)
+        //{
+        //    if(position == 0) { position = 3; }
+        //    if (position == 1)
+        //    {
+        //        Console.BackgroundColor = ConsoleColor.Blue;
+        //        Console.WriteLine(" Earth");
+        //        Console.ResetColor();
+        //    }
+        //    else
+        //    {
+        //        Console.WriteLine(" Earth");
+        //    }
+        //    if (position == 2)
+        //    {
+        //        Console.BackgroundColor = ConsoleColor.Blue;
+        //        Console.Write(" Proxima Centauri 1");
+        //        Console.ResetColor();
+        //        Console.WriteLine("");
+        //    }
+        //    else
+        //    {
+        //        Console.WriteLine(" Proxima Centauri 1");
+        //    }
+        //    if (position == 3)
+        //    {
+        //        Console.BackgroundColor = ConsoleColor.Blue;
+        //        Console.Write(" Bernard's Star 1");
+        //        Console.ResetColor();
+        //        Console.WriteLine("");
+        //    }
+        //    else
+        //    {
+        //        Console.WriteLine(" Bernard's Star 1");
+        //    }
+        //    position--;
+        //}
+
+
 
         public override string ToString()
         {

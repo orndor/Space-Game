@@ -16,7 +16,7 @@ namespace Space_Game
 
             ClearMenuArea();
 
-            OpenAndEndCredits.OpeningCredits();
+            // OpenAndEndCredits.OpeningCredits();
 
             ClearMenuArea();
 
