@@ -47,7 +47,6 @@ namespace Space_Game
             int numOfOatmeal = 0;
             int numOfLightBulbs = 0;
             int numOfHeartOfGold = 0;
-            int currentAge = Global.age;
 
             for (int i = 0; i < 31; i++)
             {
@@ -113,7 +112,7 @@ namespace Space_Game
             }
             for (int i = 0; i < inventories.Count; i++)
             {
-                if (inventories[i].ProductName == "Heart of Gold Spaceship")
+                if (inventories[i].ProductName == "The Heart of Gold Spaceship")
                     numOfHeartOfGold += 1;
             }
 
@@ -155,7 +154,7 @@ namespace Space_Game
                 Environment.Exit(0);
 
             }
-            if (currentAge == 60 || Global.money == 0 && numOfGold == 0 && numOfLightBulbs == 0 && numOfLiquidSoap == 0 && numOfOatmeal == 0 && numOfwater == 0 && numOfStyrofoam == 0)
+            if (Global.age >= 60 || Global.money == 0 && numOfGold == 0 && numOfLightBulbs == 0 && numOfLiquidSoap == 0 && numOfOatmeal == 0 && numOfwater == 0 && numOfStyrofoam == 0)
             {
                 Menu.ClearMenuArea();
                 OpenAndEndCredits.LoseEndingCredits();
