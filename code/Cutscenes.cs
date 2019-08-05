@@ -20,6 +20,7 @@ namespace Space_Game
         }
         public static void EarthCutScene()
         {
+            Menu.ClearMenuArea();
             string earthNear = $"\n\n                  You are now approaching {Planet.GetPlanetName(1)}";
             Cutscenes.PrintAnimation(earthNear);
             Thread.Sleep(1000);

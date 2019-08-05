@@ -25,7 +25,7 @@ namespace Space_Game
             Planet planet = new Planet();
 
             Console.SetCursorPosition(20, 11);
-            PrintAnimation($"{Global.name}, please select an action by pressing a key from the bellow menu");
+            PrintAnimation($"{Global.name}, please select an action by pressing a key from the menu below.");
             ConsoleKeyInfo consoleKeyInfo;
 
             PrintMenu();
@@ -64,7 +64,7 @@ namespace Space_Game
                         App.PrintSideBottomMenu(inventories, userSpaceship);
                         
                         Console.SetCursorPosition(20, 12);
-                        PrintAnimation($"{Global.name}, please select an action by pressing a key from the bellow menu");
+                        PrintAnimation($"{Global.name}, please select an action by pressing a key from the menu below.");
                         break;
                     case ConsoleKey.F3://Sell
                         if (shoping.PrintSellList(inventories))
@@ -85,7 +85,7 @@ namespace Space_Game
                         
                         App.PrintSideBottomMenu(inventories, userSpaceship);
                         Console.SetCursorPosition(10, 12);
-                        PrintAnimation($"{Global.name}, please select an action by pressing a key from the bellow menu");
+                        PrintAnimation($"{Global.name}, please select an action by pressing a key from the menu below.");
 
                         break;
                     case ConsoleKey.F4://Refuel
@@ -114,7 +114,7 @@ namespace Space_Game
             Console.SetCursorPosition(48, 6);
             PrintAnimation("Developers: Luke, Rob, Shod");
             Console.SetCursorPosition(25, 20);
-            PrintAnimation($"{Global.name}, please select an action by pressing a key from the bellow menu");
+            PrintAnimation($"{Global.name}, please select an action by pressing a key from the menu below.");
 
         }
 
@@ -137,7 +137,7 @@ namespace Space_Game
             PrintAnimation("Welcome to Space Game!");
             
             Console.SetCursorPosition(50, 4);
-            PrintAnimation("What is your name?");      
+            PrintAnimation("What is your name? ");      
             Global.name=Console.ReadLine();
             PrintPlanetList(inventories, userSpaceship);
         }
@@ -177,7 +177,7 @@ namespace Space_Game
                 Console.SetCursorPosition(50, 9);
                 PrintAnimation("3. Bernard's Star 1");
                 Console.SetCursorPosition(50, 10);
-                Console.Write("Inputing 1, 2 or 3 >> ");
+                Console.Write("Input 1, 2 or 3: ");
             do
             {
                 if (byte.TryParse(Console.ReadLine(), out origin))
@@ -189,7 +189,7 @@ namespace Space_Game
                 Console.SetCursorPosition(0, 10);
                 Console.Write(new string(' ', 120));
                 Console.SetCursorPosition(25, 10);
-                Console.Write("Error: the number is not valid, inputing 1, 2 or 3 >> ");            
+                Console.Write("Error: the number is not valid, input 1, 2 or 3: ");            
             } while (true);
             Global.currentPlanet = Global.origin;
             App.PrintSideBottomMenu(inventories, userSpaceship);
