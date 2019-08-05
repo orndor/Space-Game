@@ -20,7 +20,7 @@ namespace Space_Game
         }
         public static void EarthCutScene()
         {
-            string earthNear = $"                  \n\nYou are now approaching {Planet.GetPlanetName(1)}";
+            string earthNear = $"\n\n                  You are now approaching {Planet.GetPlanetName(1)}";
             Cutscenes.PrintAnimation(earthNear);
             Thread.Sleep(1000);
             string path = Path.Combine(Directory.GetCurrentDirectory(), "..\\..\\..\\..\\images/Earth.bmp");
@@ -38,7 +38,7 @@ namespace Space_Game
             ConsoleWriteImage3(bmpSrc2);
             Thread.Sleep(1000);
             Menu.ClearMenuArea();
-            string earthDescription = $"                  Welcome to {Planet.GetPlanetName(1)}.\n                  Earth is no longer a lush, green, wet planet, but now is a dry and grimy industrial powerhouse. \n                  Its primary output is Styrofoam and liquid soap.";
+            string earthDescription = $"\n             Welcome to {Planet.GetPlanetName(1)}.\n             Earth is no longer a lush, green, wet planet, but now is a dry and grimy\n             industrial powerhouse.\n             Its primary output is Styrofoam and liquid soap.";
             Cutscenes.PrintAnimation(earthDescription);
             Thread.Sleep(1000);
 
@@ -46,7 +46,7 @@ namespace Space_Game
 
         public static void BarnardCutscene()
         {
-            string barnardNear = $"                  \n\nYou are now approaching {Planet.GetPlanetName(3)}";
+            string barnardNear = $"\n\n                  You are now approaching {Planet.GetPlanetName(3)}";
             Cutscenes.PrintAnimation(barnardNear);
             Thread.Sleep(1000);
             string path = Path.Combine(Directory.GetCurrentDirectory(), "..\\..\\..\\..\\images/Barnard.bmp");
@@ -64,14 +64,14 @@ namespace Space_Game
             ConsoleWriteImage3(bmpSrc2);
             Thread.Sleep(1000);
             Menu.ClearMenuArea();
-            string barnardDescription = $"                  Welcome to {Planet.GetPlanetName(1)}.\n                  Bernard's Star B is a cold, dry, and dark planet, inhabited by short furry creatures known as ALFs.  However, they have mastered the ability for producing oatmeal cream pies, which all of the planets desire. \n                  The planet has a natural abundance of gold, which they consider worthless on their own planet, but know that humans from Earth value it for some reason.\n                  They primarily desire lightbulbs for not only lighting their dark planet, but as a primary food source.  The many attempts by the ALFs to manufacture lightbulbs to supply their own needs always fail; they eat them before they can develop sufficient enough quantities to fulfill demand.";
+            string barnardDescription = $"\n             Welcome to {Planet.GetPlanetName(3)}.\n             Bernard's Star B is a cold, dry, and dark planet, inhabited by short furry creatures known as ALFs.\n             However, they have mastered the ability for producing oatmeal cream pies, which all of the \n             planets desire. planet has a natural abundance of gold, which they consider worthless on their own planet,\n             but know that humans from Earth value it for some reason. They primarily\n             desire lightbulbs for not only lighting their dark planet, but as a primary food\n             source.  The many attempts by the ALFs to manufacture lightbulbs to supply\n             their own needs always fail; they eat them before they can develop\n             sufficient enough quantities to fulfill demand.";
             Cutscenes.PrintAnimation(barnardDescription);
             Thread.Sleep(1000);
         }
 
         public static void ProximaCutscene()
         {
-            string proximaNear = $"                  \n\nYou are now approaching {Planet.GetPlanetName(2)}";
+            string proximaNear = $"\n\n                  You are now approaching {Planet.GetPlanetName(2)}";
             Cutscenes.PrintAnimation(proximaNear);
             Thread.Sleep(1000);
             string path = Path.Combine(Directory.GetCurrentDirectory(), "..\\..\\..\\..\\images/Proxima.bmp");
@@ -89,7 +89,7 @@ namespace Space_Game
             ConsoleWriteImage3(bmpSrc2);
             Thread.Sleep(1000);
             Menu.ClearMenuArea();
-            string proximaDescription = $"                  Welcome to {Planet.GetPlanetName(1)}.\n                  Proxima Centauri 1 is a windy, wet, and warm planet inhabited by a race of beings known as Cylons.\n                  Their chief export is lightbulbs, which the Star B's devour and pay a premium for.  Their other primary export is water; which Earth requires to survive but is extremely heavy and difficult to ship. \n                  They subsist off liquid soap, oatmeal cream pies, and enjoy long walks on the beach.";
+            string proximaDescription = $"\n             Welcome to {Planet.GetPlanetName(2)}.\n             Proxima Centauri 1 is a windy, wet, and warm planet inhabited by a race of beings known as Cylons.\n             Their chief export is lightbulbs, which the Star B's devour and pay a premium for.\n             Their other primary export is water; which Earth requires to survive but is extremely heavy\n             and difficult to ship.\n             They subsist off liquid soap, oatmeal cream pies, and enjoy long walks on the beach.";
             Cutscenes.PrintAnimation(proximaDescription);
             Thread.Sleep(1000);
         }
