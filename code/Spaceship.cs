@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Space_Game
 {
-    class Spaceship : ISpaceship
+    class Spaceship// : ISpaceship
     {
         public double WarpFactor { get; set; }
         public double travelMultiplier { get; set; }
@@ -42,10 +43,12 @@ namespace Space_Game
 
         }
 
-        public void Travel(int currentPlanet, int travelPlanet) //change current position
+        public void Travel() //change current position
         {
+
+            int travelPlanet = Navigation().PlanetNum;
             int temp = Global.gas;
-            if(currentPlanet == 1 && travelPlanet == 2 || currentPlanet == 2 && travelPlanet == 1)
+            if(Global.currentPlanet == 1 && travelPlanet == 2 || Global.currentPlanet == 2 && travelPlanet == 1)
             {
                 Console.WriteLine("Travel");
                 Global.gas -= Convert.ToInt32(EarthToPC1 * travelMultiplier);
@@ -55,7 +58,7 @@ namespace Space_Game
                 Menu.ClearMenuArea();
                 return;
             }
-            if (currentPlanet == 1 && travelPlanet == 3 || currentPlanet == 3 && travelPlanet == 1)
+            if (Global.currentPlanet == 1 && travelPlanet == 3 || Global.currentPlanet == 3 && travelPlanet == 1)
             {
                 Console.WriteLine("Travel");
                 Global.gas -= Convert.ToInt32(EarthToBernard * travelMultiplier);
@@ -66,7 +69,7 @@ namespace Space_Game
                 Menu.ClearMenuArea();
                 return;
             }
-            if (currentPlanet == 2 && travelPlanet == 3 || currentPlanet == 3 && travelPlanet == 2)
+            if (Global.currentPlanet == 2 && travelPlanet == 3 || Global.currentPlanet == 3 && travelPlanet == 2)
             {
                 Console.WriteLine("Travel");
                 Global.gas -= Convert.ToInt32(PC1ToBernard * travelMultiplier);
@@ -119,62 +122,62 @@ namespace Space_Game
             return 1.0;
         }
 
-        public void TravelUI()
-        {
-            List<string> planets = new List<string>() { "Earth", "Proxima Centauri 1", " Bernard's Star" };
+        //public void TravelUI()
+        //{
+        //    List<string> planets = new List<string>() { "Earth", "Proxima Centauri 1", " Bernard's Star" };
 
-            ConsoleKeyInfo consoleKeyInfo;
-            int position = -1;
+        //    ConsoleKeyInfo consoleKeyInfo;
+        //    int position = -1;
 
-            Menu.ClearMenuArea();
+        //    Menu.ClearMenuArea();
 
 
-            while ((consoleKeyInfo = Console.ReadKey()).Key != ConsoleKey.Enter)
-            {
+        //    while ((consoleKeyInfo = Console.ReadKey()).Key != ConsoleKey.Enter)
+        //    {
 
                
                 
 
 
-                if (consoleKeyInfo.Key == ConsoleKey.DownArrow)
-                {
-                    if (position + 1 == planets.Count) { position = -1; }
+        //        if (consoleKeyInfo.Key == ConsoleKey.DownArrow)
+        //        {
+        //            if (position + 1 == planets.Count) { position = -1; }
 
-                    position++;
+        //            position++;
 
-                    if (position + 1 != planets.Count)
-                    {
-                        for (int i = 0; i < planets.Count; i++)
-                        {
+        //            if (position + 1 != planets.Count)
+        //            {
+        //                for (int i = 0; i < planets.Count; i++)
+        //                {
                             
-                            if (position + 1 == Global.currentPlanet)
-                            {
-                                Console.WriteLine($"Current Planet: {planets[position]}");
-                            }
-                            else
-                            {
-                                if (i == position)
-                                {
-                                    Console.BackgroundColor = ConsoleColor.Blue;
-                                    Console.WriteLine($"          {planets[i]}");
-                                    Console.ResetColor();
-                                }
-                                else
-                                {
-                                    Console.WriteLine($"          {planets[i]}");
-                                }
-                            }
-                            i++;
-                        }
-                    }
+        //                    if (position + 1 == Global.currentPlanet)
+        //                    {
+        //                        Console.WriteLine($"Current Planet: {planets[position]}");
+        //                    }
+        //                    else
+        //                    {
+        //                        if (i == position)
+        //                        {
+        //                            Console.BackgroundColor = ConsoleColor.Blue;
+        //                            Console.WriteLine($"          {planets[i]}");
+        //                            Console.ResetColor();
+        //                        }
+        //                        else
+        //                        {
+        //                            Console.WriteLine($"          {planets[i]}");
+        //                        }
+        //                    }
+        //                    i++;
+        //                }
+        //            }
                     
-                }
+        //        }
 
-            }
-            Travel(Global.currentPlanet, position);
-            return;
+        //    }
+        //    Travel(Global.currentPlanet, position);
+        //    return;
 
-        }
+        //}
 
 
 
@@ -266,5 +269,138 @@ namespace Space_Game
         {
             return $"Global.origin {Global.origin} WarpFactor {WarpFactor} Current Gas {Global.age}";
         }
+
+
+
+        //////////////////////////////////////////////////////////////////////////////////////////
+        ///SHOD//////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////////////////////
+
+
+        Planet Navigation()
+        {
+            List<Planet> planet = new List<Planet>()
+                                            {
+                                                new Planet() { PlanetName = "Earth", PlanetNum= 1 },
+                                                new Planet() { PlanetName = "Proxima Centauri 1", PlanetNum= 2 },
+                                                new Planet() { PlanetName = "Bernard's Star 1", PlanetNum= 3 }
+                                            };
+
+            var planetToRemove = planet.Single(r => r.PlanetNum == Global.currentPlanet);
+            planet.Remove(planetToRemove);
+
+
+            PrintPlanet(planet);
+            ConsoleKeyInfo consoleKeyInfo;
+         
+
+            int index = 0;
+          
+            Console.SetCursorPosition(0, index);
+            Console.ResetColor();
+            Console.BackgroundColor = ConsoleColor.Blue;     
+            Console.Write($"{planet[index].PlanetName}".PadRight(119, ' '));
+
+
+
+            while ((consoleKeyInfo = Console.ReadKey()).Key != ConsoleKey.Enter)
+            {
+                switch (consoleKeyInfo.Key)
+                {
+                    case ConsoleKey.DownArrow:
+                        index++;
+                        if (index >= 0 && index < planet.Count)
+                        {
+                            Console.SetCursorPosition(0, index - 1);
+                            Console.ResetColor();
+                            Console.Write($"{planet[index - 1].PlanetName}".PadRight(119, ' ')); 
+
+                            Console.SetCursorPosition(0, index);
+                            Console.ResetColor();
+                            Console.BackgroundColor = ConsoleColor.Blue;
+                      
+                            Console.Write($"{planet[index].PlanetName}".PadRight(119, ' ')); 
+                        }
+                       
+                        else if (index >= planet.Count)
+                        {
+                            Console.SetCursorPosition(0, index - 1);
+                            Console.ResetColor();
+                            Console.Write($"{planet[index - 1].PlanetName}".PadRight(119, ' '));
+                            index = 0;
+                            Console.SetCursorPosition(0, index);
+                            Console.ResetColor();
+                            Console.BackgroundColor = ConsoleColor.Blue;
+                           
+                            Console.Write($"{planet[index].PlanetName}".PadRight(119, ' '));
+                        }
+                        break;
+                    case ConsoleKey.UpArrow:
+                        index--;
+                        if (index >= 0 && index < planet.Count)
+                        {
+                  
+                            Console.SetCursorPosition(0, index + 1);
+                            Console.ResetColor();
+                      
+                            Console.Write($"{planet[index + 1].PlanetName}".PadRight(119, ' '));
+
+                            Console.SetCursorPosition(0, index);
+                            Console.ResetColor();
+                            Console.BackgroundColor = ConsoleColor.Blue;
+                     
+                            Console.Write($"{planet[index].PlanetName}".PadRight(119, ' '));
+                        }
+                        else if (index < 0)
+                        {
+                            Console.SetCursorPosition(0, index + 1);
+                            Console.ResetColor();
+                          
+                            Console.Write($"{planet[index + 1].PlanetName}".PadRight(119, ' '));
+                            index = planet.Count - 1;
+                            Console.SetCursorPosition(0, index);
+                            Console.ResetColor();
+                            Console.BackgroundColor = ConsoleColor.Blue;
+                           
+                            Console.Write($"{planet[index].PlanetName}".PadRight(119, ' '));
+                        }
+                        break;
+                    default:
+                        Console.Write("\b \b");
+                        break;
+
+                }
+             
+            }
+   
+            Console.ResetColor();
+
+            return planet[index];
+        }
+
+
+        public void PrintPlanet(List<Planet> p)
+        {
+            if (p.Count <= 0)
+            {
+                //Console.WriteLine("Inventory is empty!");
+                //return false;
+            }
+            else
+            {
+                
+                Menu.ClearMenuArea();
+                foreach (var item in p)
+                {
+                    Console.WriteLine($"{item.PlanetName}");
+                    //menuList.Add(item);
+                }
+                //Sell(inventory, Navigation(inventory));
+                //return true;
+            }
+
+        }
+
+
     }
 }
