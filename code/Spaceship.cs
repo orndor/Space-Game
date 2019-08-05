@@ -37,6 +37,7 @@ namespace Space_Game
                 Global.money -= fuelPrice;
                 Global.gas++;
             }
+            
             Menu.ClearMenuArea();
 
         }

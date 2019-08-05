@@ -90,6 +90,7 @@ namespace Space_Game
                         break;
                     case ConsoleKey.F4://Refuel
                         userSpaceship.ReFuel();
+                        App.PrintSideBottomMenu(inventories, userSpaceship);
                         break;
                     case ConsoleKey.F5://About
                         About();
