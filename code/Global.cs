@@ -12,5 +12,7 @@ namespace Space_Game
         static public string name="Player";
         static public byte origin =1;
         static public int gas = 100;
+
+
     }
 }
