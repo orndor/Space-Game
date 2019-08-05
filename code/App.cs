@@ -59,7 +59,7 @@ namespace Space_Game
             //Put current planet, Age, Fuel level, and Money in the right box.
 
             Planet currentPlanet = new Planet();
-            string currentPlanetName = currentPlanet.GetPlanetName(Global.currentPlanet);
+            string currentPlanetName = Planet.GetPlanetName(Global.currentPlanet);
 
 
             Console.ForegroundColor = ConsoleColor.DarkYellow;
