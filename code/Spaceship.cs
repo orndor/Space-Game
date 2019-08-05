@@ -38,8 +38,6 @@ namespace Space_Game
                 Global.gas++;
             }
             Menu.ClearMenuArea();
-            //center here
-            Console.WriteLine("Gas is full");
 
         }
 
