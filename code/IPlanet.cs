@@ -9,7 +9,7 @@ namespace Space_Game
         //byte PlanetNum { get; set; }
         //string PlanetName { get; set; }
         //int GetFuel(int PlanetNum);
-        string GetPlanetName(byte PlanetNum);
+        //string GetPlanetName(byte PlanetNum);
 
 
     }

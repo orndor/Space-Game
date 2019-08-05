@@ -111,7 +111,7 @@ namespace Space_Game
             Console.SetCursorPosition(50, 4);
             PrintAnimation("Copyright (c) 2019 MSSA");
             Console.SetCursorPosition(48, 6);
-            PrintAnimation("Developers: Luck, Rob, Shod");
+            PrintAnimation("Developers: Luke, Rob, Shod");
             Console.SetCursorPosition(25, 20);
             PrintAnimation($"{Global.name}, please select an action by pressing a key from the bellow menu");
 
@@ -155,7 +155,7 @@ namespace Space_Game
         {
             Console.ResetColor();
             Console.SetCursorPosition(0, 0);
-            for (int i = 0; i < 25; i++)
+            for (int i = 0; i < 26; i++)
             {
                 Console.WriteLine(new string(' ', 120));
             }

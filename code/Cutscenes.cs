@@ -10,23 +10,77 @@ namespace Space_Game
 {
     class Cutscenes
     {
-        public static void DoIt()
+        public static void PrintAnimation(string txt)
         {
+            for (int i = 0; i < txt.Length; i++)
+            {
+                Console.Write(txt[i]);
+                Thread.Sleep(1);
+            }
+        }
+        public static void EarthCutScene()
+        {
+            string earthNear = $"                  \n\nYou are now approaching {Planet.GetPlanetName(1)}";
+            Cutscenes.PrintAnimation(earthNear);
+            Thread.Sleep(1000);
+            string path = Path.Combine(Directory.GetCurrentDirectory(), "..\\..\\..\\..\\images/Earth.bmp");
             Menu.ClearMenuArea();
             Console.SetCursorPosition(0, 0);
-            Bitmap bmpSrc = new Bitmap(@"C:\Users\lukep\OneDrive\MSSA Class\Week 5\earthBMP.bmp", true);
+            Bitmap bmpSrc = new Bitmap(path, true);
             ConsoleWriteImage(bmpSrc);
             Thread.Sleep(1000);
             Console.SetCursorPosition(0, 0);
-            Bitmap bmpSrc1 = new Bitmap(@"C:\Users\lukep\OneDrive\MSSA Class\Week 5\earthBMP.bmp", true);
+            Bitmap bmpSrc1 = new Bitmap(path, true);
             ConsoleWriteImage2(bmpSrc1);
             Thread.Sleep(1000);
             Console.SetCursorPosition(0, 0);
-            Bitmap bmpSrc2 = new Bitmap(@"C:\Users\lukep\OneDrive\MSSA Class\Week 5\earthBMP.bmp", true);
+            Bitmap bmpSrc2 = new Bitmap(path, true);
             ConsoleWriteImage3(bmpSrc2);
             Thread.Sleep(1000);
 
 
+        }
+
+        public static void BarnardCutscene()
+        {
+            string barnardNear = $"                  \n\nYou are now approaching {Planet.GetPlanetName(3)}";
+            Cutscenes.PrintAnimation(barnardNear);
+            Thread.Sleep(1000);
+            string path = Path.Combine(Directory.GetCurrentDirectory(), "..\\..\\..\\..\\images/Barnard.bmp");
+            Menu.ClearMenuArea();
+            Console.SetCursorPosition(1, 1);
+            Bitmap bmpSrc = new Bitmap(path, true);
+            ConsoleWriteImage(bmpSrc);
+            Thread.Sleep(1000);
+            Console.SetCursorPosition(1, 1);
+            Bitmap bmpSrc1 = new Bitmap(path, true);
+            ConsoleWriteImage2(bmpSrc1);
+            Thread.Sleep(1000);
+            Console.SetCursorPosition(1, 1);
+            Bitmap bmpSrc2 = new Bitmap(path, true);
+            ConsoleWriteImage3(bmpSrc2);
+            Thread.Sleep(1000);
+        }
+
+        public static void ProximaCutscene()
+        {
+            string proximaNear = $"                  \n\nYou are now approaching {Planet.GetPlanetName(2)}";
+            Cutscenes.PrintAnimation(proximaNear);
+            Thread.Sleep(1000);
+            string path = Path.Combine(Directory.GetCurrentDirectory(), "..\\..\\..\\..\\images/Proxima.bmp");
+            Menu.ClearMenuArea();
+            Console.SetCursorPosition(0, 0);
+            Bitmap bmpSrc = new Bitmap(path, true);
+            ConsoleWriteImage(bmpSrc);
+            Thread.Sleep(1000);
+            Console.SetCursorPosition(0, 0);
+            Bitmap bmpSrc1 = new Bitmap(path, true);
+            ConsoleWriteImage2(bmpSrc1);
+            Thread.Sleep(1000);
+            Console.SetCursorPosition(0, 0);
+            Bitmap bmpSrc2 = new Bitmap(path, true);
+            ConsoleWriteImage3(bmpSrc2);
+            Thread.Sleep(1000);
         }
 
         static int[] cColors = { 0x000000, 0x000080, 0x008000, 0x008080, 0x800000, 0x800080, 0x808000, 0xC0C0C0, 0x808080, 0x0000FF, 0x00FF00, 0x00FFFF, 0xFF0000, 0xFF00FF, 0xFFFF00, 0xFFFFFF };

@@ -26,7 +26,7 @@ namespace Space_Game
             
             if(diff == 0){ Menu.ClearMenuArea(); Console.WriteLine("Gas is already Full"); return;}
             
-            for(int i = 0; i <= diff; i++)
+            for(int i = 0; i < diff; i++)
             {
                 if (Global.money < fuelPrice)
                 {
@@ -53,8 +53,6 @@ namespace Space_Game
                 if(Global.gas < 0) { Menu.ClearMenuArea(); Global.gas = temp; Console.WriteLine("Not enough Gas to travel..."); }
                 Global.age = Convert.ToByte(Global.age + EarthToPC1 / WarpFactor);
                 Global.currentPlanet = Convert.ToByte(travelPlanet);
-                Menu.ClearMenuArea();
-                return;
             }
             if (Global.currentPlanet == 1 && travelPlanet == 3 || Global.currentPlanet == 3 && travelPlanet == 1)
             {
@@ -64,8 +62,6 @@ namespace Space_Game
                 byte age = Convert.ToByte(Global.age + EarthToBernard / WarpFactor);
                 Global.age = age;
                 Global.currentPlanet = Convert.ToByte(travelPlanet);
-                Menu.ClearMenuArea();
-                return;
             }
             if (Global.currentPlanet == 2 && travelPlanet == 3 || Global.currentPlanet == 3 && travelPlanet == 2)
             {
@@ -75,9 +71,22 @@ namespace Space_Game
                 byte age = Convert.ToByte(Global.age + PC1ToBernard / WarpFactor);
                 Global.age = age;
                 Global.currentPlanet = Convert.ToByte(travelPlanet);
-                Menu.ClearMenuArea();
-                return;
             }
+
+            if(travelPlanet == 1)
+            {
+                Cutscenes.EarthCutScene();
+            }
+            else if(travelPlanet == 2)
+            {
+                Cutscenes.ProximaCutscene();
+            }
+            else if(travelPlanet == 3)
+            {
+                Cutscenes.BarnardCutscene();
+            }
+
+            return;
            
         }
 
