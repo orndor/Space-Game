@@ -13,31 +13,9 @@ namespace Space_Game
         {
             market = products;
         }
-        //public Product FindPrice(string productName)
-        //{
-        //    Product item = new Product() { ProductName = "Gold", Price = 100, Planet = 1 };
-        //    foreach (Product i in market)
-        //    {
-        //        if ((i.ProductName == productName) && (i.Planet == Global.currentPlanet))
-        //        {
-        //            item = i;
-        //            break;
-        //        }
-        //    }
-        //    return item;
-        //}
         public Product FindPrice(Product item)
         {
-            //Product item = new Product() { ProductName = "Gold", Price = 100, Planet = 1 };
-            foreach (Product i in market)
-            {
-                if ((i.ProductName == item.ProductName) && (i.Planet == Global.currentPlanet))
-                {
-                    item = i;
-                    break;
-                }
-            }
-            return item;
+            return market.Find(x => x.ProductName == item.ProductName && x.Planet == Global.currentPlanet);
         }
 
         public bool Buy(List<Product> inventory, Product item)
@@ -67,11 +45,9 @@ namespace Space_Game
         }
 
         public bool PrintSellList(List<Product> inventory)
-        {
-            
+        {          
             if (inventory.Count <= 0)
             {
-                //Console.WriteLine("Inventory is empty!");
                 return false;
             }
             else
@@ -84,8 +60,7 @@ namespace Space_Game
                     Console.WriteLine($"{item.ProductName} {item.Price}");
                     menuList.Add(item);
                 }
-                return Sell(inventory, Navigation(inventory));
-                
+                return Sell(inventory, Navigation(inventory));               
             }
             
         }
@@ -101,94 +76,69 @@ namespace Space_Game
                         Console.WriteLine($"{item.ProductName} {item.Price}");
                         menuList.Add(item);
                     }                   
-            }
-                
+            }               
             return Buy(inventory, Navigation(inventory));
         }
 
         Product Navigation(List<Product> inventory)
         {
-            //ConsoleKeyInfo consoleKeyInfo;
-            //int[] menuList = new int[5];
-           
             int index = 0;
-            // When the arrow down key is pressed first time
-                Console.SetCursorPosition(0, index);
-                Console.ResetColor();
-                Console.BackgroundColor = ConsoleColor.Blue;
-                //Console.Write("\r" + new string(' ', Convert.ToString(menuList[index]).Length) + "\r"); // Clear current line
-                Console.Write($"{menuList[index].ProductName} {menuList[index].Price}".PadRight(119, ' ')); // Rewrite it with matching index array item
-
-
-            //for (int x = 0; x < 5; x++) menuList[x] = x;
-            //foreach (var i in menuList) Console.WriteLine(i);
-
-            // Console.SetCursorPosition(0, 0);
             bool exit = false;
 
+            Console.SetCursorPosition(0, index);
+            Console.ResetColor();
+            Console.BackgroundColor = ConsoleColor.Blue;
+            Console.Write($"{menuList[index].ProductName} {menuList[index].Price}".PadRight(119, ' ')); // Rewrite it with matching index array item
+
             while (!exit )
-            {
-                
-                switch (Console.ReadKey().Key)//if (consoleKeyInfo.Key == ConsoleKey.DownArrow)
+            {                
+                switch (Console.ReadKey().Key)
                 {
                     case ConsoleKey.DownArrow:
                     index++;
                     if (index >= 0 && index < menuList.Count)
                     {
                         Console.SetCursorPosition(0, index - 1);
-                        Console.ResetColor();
-                        //Console.Write("\r" + new string(' ', Convert.ToString(menuList[index - 1]).Length) + "\r"); // Clear previous line
-                        Console.Write($"{menuList[index - 1].ProductName} {menuList[index - 1].Price}".PadRight(119, ' ')); // Rewrite it
-
+                        Console.ResetColor();    
+                        Console.Write($"{menuList[index - 1].ProductName} {menuList[index - 1].Price}".PadRight(119, ' '));
                         Console.SetCursorPosition(0, index);
                         Console.ResetColor();
                         Console.BackgroundColor = ConsoleColor.Blue;
-                        //Console.Write("\r" + new string(' ', Convert.ToString(menuList[index]).Length) + "\r"); // Clear current line
-                        Console.Write($"{menuList[index].ProductName} {menuList[index].Price}".PadRight(119, ' ')); // Rewrite it
+                        Console.Write($"{menuList[index].ProductName} {menuList[index].Price}".PadRight(119, ' '));
                     }
-                    // When the index is same/greater than menuList length, keep it with the same value
-                    // So the index doesn't increment
                     else if(index >= menuList.Count)
                     {
                         Console.SetCursorPosition(0, index-1 );
                         Console.ResetColor();
-                        //Console.Write("\r" + new string(' ', Convert.ToString(menuList[index-1]).Length) + "\r"); // Clear previous line
                         Console.Write($"{menuList[index - 1].ProductName} {menuList[index - 1].Price}".PadRight(119, ' '));
-                        index = 0;// index = menuList.Count - 1;
+                        index = 0;
                         Console.SetCursorPosition(0, index);
                         Console.ResetColor();
                         Console.BackgroundColor = ConsoleColor.Blue;
-                        //Console.Write("\r" + new string(' ', Convert.ToString(menuList[index]).Length) + "\r"); // Clear current line
                         Console.Write($"{menuList[index].ProductName} {menuList[index].Price}".PadRight(119, ' '));
                     }
                         break;
                     case ConsoleKey.UpArrow:
-                        index--;//if (index > 0) index--;
+                        index--;
                         if (index >= 0 && index < menuList.Count)
                         {
-                            // Same as above
                             Console.SetCursorPosition(0, index + 1);
                             Console.ResetColor();
-                            //Console.Write("\r" + new string(' ', Convert.ToString(menuList[index + 1]).Length) + "\r");
                             Console.Write($"{menuList[index + 1].ProductName} {menuList[index + 1].Price}".PadRight(119, ' '));
-
                             Console.SetCursorPosition(0, index);
                             Console.ResetColor();
                             Console.BackgroundColor = ConsoleColor.Blue;
-                            //Console.Write("\r" + new string(' ', Convert.ToString(menuList[index]).Length) + "\r");
                             Console.Write($"{menuList[index].ProductName} {menuList[index].Price}".PadRight(119, ' '));
                         }
                         else if (index < 0)
                         {
                             Console.SetCursorPosition(0, index+1 );
                             Console.ResetColor();
-                            //Console.Write("\r" + new string(' ', Convert.ToString(menuList[index-1]).Length) + "\r"); // Clear previous line
                             Console.Write($"{menuList[index+1].ProductName} {menuList[index+1].Price}".PadRight(119, ' '));
-                            index = menuList.Count-1;// index = menuList.Count - 1;
+                            index = menuList.Count-1;
                             Console.SetCursorPosition(0, index);
                             Console.ResetColor();
                             Console.BackgroundColor = ConsoleColor.Blue;
-                            //Console.Write("\r" + new string(' ', Convert.ToString(menuList[index]).Length) + "\r"); // Clear current line
                             Console.Write($"{menuList[index].ProductName} {menuList[index].Price}".PadRight(119, ' '));
                         }
                         break;
@@ -199,17 +149,11 @@ namespace Space_Game
                         exit = true;
                         Console.ResetColor();
                         return menuList[index];
-                        break;
                     default:
                         Console.Write("\b \b");
                         break;
-
-                }
-                //else if (consoleKeyInfo.Key == ConsoleKey.UpArrow) // Up arrow is intended to work only, when the index is greater than 0 (so the second or greater option is selected)
-               
+                }              
             }
-            //Buy(inventory, menuList[index]);
-            //if (exit) Console.WriteLine("esc");
             Console.ResetColor();
             return null;
 

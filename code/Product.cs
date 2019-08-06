@@ -4,12 +4,11 @@ using System.Text;
 
 namespace Space_Game
 {
-    class Product : IProduct
+    class Product
     {
         public string ProductName { get; set; }
         public int Price { get; set; }
         public byte Planet { get; set; }
-
         public void AddProducts(List<Product> products)
         {
             products.Add(new Product() { ProductName = "Gold", Price = 100, Planet = 1 });
@@ -31,8 +30,6 @@ namespace Space_Game
             products.Add(new Product() { ProductName = "Light Bulbs", Price = 5, Planet = 2 });
             products.Add(new Product() { ProductName = "Light Bulbs", Price = 100, Planet = 3 });
             products.Add(new Product() { ProductName = "The Heart of Gold Spaceship", Price = 2000, Planet = 1 });
-            products.Add(new Product() { ProductName = "The Heart of Gold Spaceship", Price = 2000, Planet = 2 });
-            products.Add(new Product() { ProductName = "The Heart of Gold Spaceship", Price = 2000, Planet = 3 });
         }
     }
 }

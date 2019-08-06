@@ -34,10 +34,7 @@ namespace Space_Game
             // Draw the the right and bottom boxes
             PrintSideBottomMenu(inventories, userSpaceship);
             menu.KeyCatch(inventories, products);
-
-            //Stop the game to wait on user input
-            Console.WriteLine("Press [S] to save game.  Press [Q] to quit.");
-            Console.ReadKey(true);
+            
         }
         static public void PrintSideBottomMenu(List<Product> inventories, Spaceship userSpaceship)
         {
@@ -64,18 +61,18 @@ namespace Space_Game
 
             Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.SetCursorPosition(122, 0);
-            Console.WriteLine($"----==={Global.name}'s Stats===----".PadRight(28));
+            Console.WriteLine($"----==={Global.name}'s Stats===----".PadRight(28, ' '));
             Console.ForegroundColor = ConsoleColor.White;
             Console.SetCursorPosition(122, 1);
-            Console.WriteLine($"     Age: {Global.age}".PadRight(28));
+            Console.WriteLine($"     Age: {Global.age}".PadRight(18,' '));
             Console.SetCursorPosition(122, 3);
-            Console.WriteLine($"    Fuel: {Global.gas}".PadRight(28));
+            Console.WriteLine($"    Fuel: {Global.gas}".PadRight(18,' '));
             Console.SetCursorPosition(122, 5);
-            Console.WriteLine($"  Wallet: {Global.money} Cubits".PadRight(28));
+            Console.WriteLine($"  Wallet: {Global.money} Cubits".PadRight(18,' '));
             Console.SetCursorPosition(122, 7);
-            Console.WriteLine($"Location: {currentPlanetName.PadRight(18)}");
+            Console.WriteLine($"Location: {currentPlanetName.PadRight(18,' ')}");
             Console.SetCursorPosition(122, 9);
-            Console.WriteLine($"Max Warp: {userSpaceship.GetWarp()}".PadRight(28));
+            Console.WriteLine($"Max Warp: {userSpaceship.GetWarp()}".PadRight(18, ' '));
             Console.SetCursorPosition(122,11);
 
 

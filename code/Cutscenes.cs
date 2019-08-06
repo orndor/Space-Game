@@ -20,6 +20,7 @@ namespace Space_Game
         }
         public static void EarthCutScene()
         {
+            Menu.ClearMenuArea();
             string earthNear = $"\n\n                  You are now approaching {Planet.GetPlanetName(1)}";
             Cutscenes.PrintAnimation(earthNear);
             Thread.Sleep(1000);
@@ -46,6 +47,7 @@ namespace Space_Game
 
         public static void BarnardCutscene()
         {
+            Menu.ClearMenuArea();
             string barnardNear = $"\n\n                  You are now approaching {Planet.GetPlanetName(3)}";
             Cutscenes.PrintAnimation(barnardNear);
             Thread.Sleep(1000);
@@ -71,6 +73,7 @@ namespace Space_Game
 
         public static void ProximaCutscene()
         {
+            Menu.ClearMenuArea();
             string proximaNear = $"\n\n                  You are now approaching {Planet.GetPlanetName(2)}";
             Cutscenes.PrintAnimation(proximaNear);
             Thread.Sleep(1000);
