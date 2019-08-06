@@ -18,6 +18,26 @@ namespace Space_Game
                 Thread.Sleep(1);
             }
         }
+
+        public static void BowserCutscene()
+        {
+            /*
+             * Console.ResetColor();
+                        Console.SetCursorPosition(0, 0);
+                        for (int i = 0; i < 29; i++)
+                        {
+                            Console.WriteLine(new string(' ', 120));
+                        }
+                        Console.SetCursorPosition(0, 0);
+                        Cutscenes.BowserCutscene();
+             */
+            Menu.ClearMenuArea();
+            string path = Path.Combine(Directory.GetCurrentDirectory(), "..\\..\\..\\..\\images/Bowser.bmp");
+            Bitmap bmpSrc = new Bitmap(path, true);
+            Console.SetCursorPosition(0,0);
+            ConsoleWriteImage4(bmpSrc);
+            Thread.Sleep(1000);
+        }
         public static void EarthCutScene()
         {
             Menu.ClearMenuArea();
@@ -171,6 +191,24 @@ namespace Space_Game
         public static void ConsoleWriteImage3(Bitmap source)
         {
             int sMax = 26;
+            decimal percent = Math.Min(decimal.Divide(sMax, source.Width), decimal.Divide(sMax, source.Height));
+            Size dSize = new Size((int)(source.Width * percent), (int)(source.Height * percent));
+            Bitmap bmpMax = new Bitmap(source, dSize.Width * 2, dSize.Height);
+            for (int i = 0; i < dSize.Height; i++)
+            {
+                for (int j = 0; j < dSize.Width; j++)
+                {
+                    ConsoleWritePixel(bmpMax.GetPixel(j * 2, i));
+                    ConsoleWritePixel(bmpMax.GetPixel(j * 2 + 1, i));
+                }
+                System.Console.WriteLine();
+            }
+            Console.ResetColor();
+        }
+
+        public static void ConsoleWriteImage4(Bitmap source)
+        {
+            int sMax = 55;
             decimal percent = Math.Min(decimal.Divide(sMax, source.Width), decimal.Divide(sMax, source.Height));
             Size dSize = new Size((int)(source.Width * percent), (int)(source.Height * percent));
             Bitmap bmpMax = new Bitmap(source, dSize.Width * 2, dSize.Height);
