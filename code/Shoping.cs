@@ -15,16 +15,7 @@ namespace Space_Game
         }
         public Product FindPrice(Product item)
         {
-            //foreach (Product i in market)
-            //{
-            //    if ((i.ProductName == item.ProductName) && (i.Planet == Global.currentPlanet))
-            //    {
-            //        item = i;
-            //        break;
-            //    }
-            //}
-            //Product result = market.Find(x => x.ProductName == item.ProductName && x.Planet==Global.currentPlanet);
-            return market.Find(x => x.ProductName == item.ProductName && x.Planet == Global.currentPlanet);//item;
+            return market.Find(x => x.ProductName == item.ProductName && x.Planet == Global.currentPlanet);
         }
 
         public bool Buy(List<Product> inventory, Product item)
