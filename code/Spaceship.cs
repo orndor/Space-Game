@@ -19,7 +19,7 @@ namespace Space_Game
             travelMultiplier = GetTravelMultiplier();
 
         }
-        public void ReFuel() //from planet
+        public void ReFuel() 
         {
             int fuelPrice = Planet.GetFuel(Global.currentPlanet);
             int diff = 100 - Global.gas;
@@ -53,7 +53,6 @@ namespace Space_Game
             Console.WriteLine("Ready to go!!! You filled the fuel tank.");
             Console.SetCursorPosition(25, 13);
             Console.WriteLine($"{Global.name}, please select an action by pressing a key from the menu below.");
-
         }
 
         public void Travel() //change current position
@@ -62,31 +61,50 @@ namespace Space_Game
             int temp = Global.gas;
             if(Global.currentPlanet == 1 && travelPlanet == 2 || Global.currentPlanet == 2 && travelPlanet == 1)
             {
-                //Console.WriteLine("Travel");
                 Global.gas -= Convert.ToInt32(EarthToPC1 * travelMultiplier);
                 if(Global.gas < 0)
                 {
                     Menu.ClearMenuArea();
                     Global.gas = temp;
+                    Console.SetCursorPosition(35, 10);
                     Console.WriteLine("Not enough Gas to travel...");
+                    Console.SetCursorPosition(25, 13);
+                    Console.WriteLine($"{Global.name}, please select an action by pressing a key from the menu below.");
+                    return;
                 }
                 Global.age = Convert.ToByte(Global.age + EarthToPC1 / WarpFactor);
                 Global.currentPlanet = Convert.ToByte(travelPlanet);
             }
             if (Global.currentPlanet == 1 && travelPlanet == 3 || Global.currentPlanet == 3 && travelPlanet == 1)
             {
-                //Console.WriteLine("Travel");
                 Global.gas -= Convert.ToInt32(EarthToBernard * travelMultiplier);
-                if (Global.gas < 0) { Menu.ClearMenuArea(); Global.gas = temp; Console.WriteLine("Not enough Gas to travel..."); }
+                if (Global.gas < 0)
+                {
+                    Menu.ClearMenuArea();
+                    Global.gas = temp;
+                    Console.SetCursorPosition(35, 10);
+                    Console.WriteLine("Not enough Gas to travel...");
+                    Console.SetCursorPosition(25, 13);
+                    Console.WriteLine($"{Global.name}, please select an action by pressing a key from the menu below.");
+                    return;
+                }
                 byte age = Convert.ToByte(Global.age + EarthToBernard / WarpFactor);
                 Global.age = age;
                 Global.currentPlanet = Convert.ToByte(travelPlanet);
             }
             if (Global.currentPlanet == 2 && travelPlanet == 3 || Global.currentPlanet == 3 && travelPlanet == 2)
             {
-                //Console.WriteLine("Travel");
                 Global.gas -= Convert.ToInt32(PC1ToBernard * travelMultiplier);
-                if (Global.gas < 0) { Menu.ClearMenuArea(); Global.gas = temp; Console.WriteLine("Not enough Gas to travel..."); }
+                if (Global.gas < 0)
+                {
+                    Menu.ClearMenuArea();
+                    Global.gas = temp;
+                    Console.SetCursorPosition(35, 10);
+                    Console.WriteLine("Not enough Gas to travel...");
+                    Console.SetCursorPosition(25, 13);
+                    Console.WriteLine($"{Global.name}, please select an action by pressing a key from the menu below.");
+                    return;
+                }
                 byte age = Convert.ToByte(Global.age + PC1ToBernard / WarpFactor);
                 Global.age = age;
                 Global.currentPlanet = Convert.ToByte(travelPlanet);
@@ -165,19 +183,16 @@ namespace Space_Game
             var planetToRemove = planet.Single(r => r.PlanetNum == Global.currentPlanet);
             planet.Remove(planetToRemove);
 
+            Menu.ClearMenuArea();
+            planet.ForEach(x => { Console.WriteLine($"{x.PlanetName}"); });// print list of planets 
 
-            PrintPlanet(planet);
             ConsoleKeyInfo consoleKeyInfo;
-         
-
             int index = 0;
           
             Console.SetCursorPosition(0, index);
             Console.ResetColor();
             Console.BackgroundColor = ConsoleColor.Blue;     
             Console.Write($"{planet[index].PlanetName}".PadRight(119, ' '));
-
-
 
             while ((consoleKeyInfo = Console.ReadKey()).Key != ConsoleKey.Enter)
             {
@@ -190,14 +205,11 @@ namespace Space_Game
                             Console.SetCursorPosition(0, index - 1);
                             Console.ResetColor();
                             Console.Write($"{planet[index - 1].PlanetName}".PadRight(119, ' ')); 
-
                             Console.SetCursorPosition(0, index);
                             Console.ResetColor();
-                            Console.BackgroundColor = ConsoleColor.Blue;
-                      
+                            Console.BackgroundColor = ConsoleColor.Blue;                    
                             Console.Write($"{planet[index].PlanetName}".PadRight(119, ' ')); 
-                        }
-                       
+                        }                    
                         else if (index >= planet.Count)
                         {
                             Console.SetCursorPosition(0, index - 1);
@@ -206,77 +218,46 @@ namespace Space_Game
                             index = 0;
                             Console.SetCursorPosition(0, index);
                             Console.ResetColor();
-                            Console.BackgroundColor = ConsoleColor.Blue;
-                           
+                            Console.BackgroundColor = ConsoleColor.Blue;                           
                             Console.Write($"{planet[index].PlanetName}".PadRight(119, ' '));
                         }
                         break;
                     case ConsoleKey.UpArrow:
                         index--;
                         if (index >= 0 && index < planet.Count)
-                        {
-                  
+                        {                  
                             Console.SetCursorPosition(0, index + 1);
                             Console.ResetColor();
-                      
                             Console.Write($"{planet[index + 1].PlanetName}".PadRight(119, ' '));
-
                             Console.SetCursorPosition(0, index);
                             Console.ResetColor();
-                            Console.BackgroundColor = ConsoleColor.Blue;
-                     
+                            Console.BackgroundColor = ConsoleColor.Blue;                    
                             Console.Write($"{planet[index].PlanetName}".PadRight(119, ' '));
                         }
                         else if (index < 0)
                         {
                             Console.SetCursorPosition(0, index + 1);
-                            Console.ResetColor();
-                          
+                            Console.ResetColor();                         
                             Console.Write($"{planet[index + 1].PlanetName}".PadRight(119, ' '));
                             index = planet.Count - 1;
                             Console.SetCursorPosition(0, index);
                             Console.ResetColor();
-                            Console.BackgroundColor = ConsoleColor.Blue;
-                           
+                            Console.BackgroundColor = ConsoleColor.Blue;                           
                             Console.Write($"{planet[index].PlanetName}".PadRight(119, ' '));
                         }
                         break;
                     default:
                         Console.Write("\b \b");
                         break;
-
-                }
-             
-            }
-   
+                }             
+            }   
             Console.ResetColor();
-
             return planet[index];
         }
 
-
-        public void PrintPlanet(List<Planet> p)
-        {
-            if (p.Count <= 0)
-            {
-                //Console.WriteLine("Inventory is empty!");
-                //return false;
-            }
-            else
-            {
-                
-                Menu.ClearMenuArea();
-                foreach (var item in p)
-                {
-                    Console.WriteLine($"{item.PlanetName}");
-                    //menuList.Add(item);
-                }
-                //Sell(inventory, Navigation(inventory));
-                //return true;
-            }
-
-        }
-
-
+        //public void PrintPlanet(List<Planet> p)
+        //{
+            
+        //}
     }
 }
