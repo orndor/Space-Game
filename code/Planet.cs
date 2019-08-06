@@ -4,25 +4,13 @@ using System.Text;
 
 namespace Space_Game
 {
-    class Planet : IPlanet
+    class Planet
     {
-
-         public byte PlanetNum { get; set; }
-         public string PlanetName { get; set; }
-
-        // public int fuelPrice { get; set; }
-        //public Planet(byte planetNum = 1 )
-        //{
-        //    this.PlanetName = GetPlanetName(planetNum);
-        //    this.PlanetNum = planetNum;
-        //}
-
-
+        public byte PlanetNum { get; set; }
+        public string PlanetName { get; set; }
         public static string GetPlanetName(byte PlanetNum)
         {
-
             string PlanetName = "Earth";
-
             switch (PlanetNum)
             {
                 case 1:
@@ -37,7 +25,6 @@ namespace Space_Game
             }
             return PlanetName;
         }
-
         public static int GetFuel(int PlanetNum)
         {
             int price = 0;
@@ -54,7 +41,6 @@ namespace Space_Game
                     break;
             }
             return price;
-
         }
     }
 }

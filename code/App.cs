@@ -34,10 +34,7 @@ namespace Space_Game
             // Draw the the right and bottom boxes
             PrintSideBottomMenu(inventories, userSpaceship);
             menu.KeyCatch(inventories, products);
-
-            //Stop the game to wait on user input
-            Console.WriteLine("Press [S] to save game.  Press [Q] to quit.");
-            Console.ReadKey(true);
+            
         }
         static public void PrintSideBottomMenu(List<Product> inventories, Spaceship userSpaceship)
         {

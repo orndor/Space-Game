@@ -4,12 +4,11 @@ using System.Text;
 
 namespace Space_Game
 {
-    class Product : IProduct
+    class Product
     {
         public string ProductName { get; set; }
         public int Price { get; set; }
         public byte Planet { get; set; }
-
         public void AddProducts(List<Product> products)
         {
             products.Add(new Product() { ProductName = "Gold", Price = 100, Planet = 1 });
