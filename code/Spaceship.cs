@@ -57,7 +57,9 @@ namespace Space_Game
 
         public void Travel() //change current position
         {
+            Menu.PrintMenu(true);
             int travelPlanet = Navigation().PlanetNum;
+            
             int temp = Global.gas;
             if(Global.currentPlanet == 1 && travelPlanet == 2 || Global.currentPlanet == 2 && travelPlanet == 1)
             {
@@ -255,9 +257,5 @@ namespace Space_Game
             return planet[index];
         }
 
-        //public void PrintPlanet(List<Planet> p)
-        //{
-            
-        //}
     }
 }
