@@ -39,6 +39,7 @@ namespace Space_Game
                 switch (consoleKeyInfo.Key)
                 {
                     case ConsoleKey.F1://travel
+
                         spaceship.Travel();
                         App.PrintSideBottomMenu(inventories, spaceship);
                         //Cutscenes.DoIt();
@@ -55,7 +56,7 @@ namespace Space_Game
                             //ClearMenuArea();
                             Console.Clear();
                             Console.SetCursorPosition(25, 10);
-                            Console.Write($" Soryy {Global.name}, the transaction wasn't processed");                           
+                            Console.WriteLine($" SSorry {Global.name}, the transaction wasn't processed");                           
                         }
                         
                         //Console.ResetColor();
