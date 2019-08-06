@@ -255,9 +255,5 @@ namespace Space_Game
             return planet[index];
         }
 
-        //public void PrintPlanet(List<Planet> p)
-        //{
-            
-        //}
     }
 }
