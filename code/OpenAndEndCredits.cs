@@ -45,7 +45,7 @@ namespace Space_Game
                         for (int j = 0; j < line.Length; j++)
                         {
                             Console.Write(line[j]);
-                            Thread.Sleep(1);
+                            Thread.Sleep(20);
                         }
                     }
                 }
