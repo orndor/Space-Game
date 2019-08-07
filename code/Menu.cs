@@ -16,7 +16,7 @@ namespace Space_Game
 
             ClearMenuArea();
 
-            // OpenAndEndCredits.OpeningCredits();
+            //OpenAndEndCredits.OpeningCredits();
 
             ClearMenuArea();
 
@@ -39,10 +39,11 @@ namespace Space_Game
                 switch (consoleKeyInfo.Key)
                 {
                     case ConsoleKey.F1://travel
-
                         spaceship.Travel();
+                        SpacePirate.RobbedBySpacePirate(inventories);
                         App.PrintSideBottomMenu(inventories, spaceship);
                         //Cutscenes.DoIt();
+                        PrintMenu();
                         break;
                     case ConsoleKey.F2://Buy
                         if (shoping.PrintBuyList(inventories))
@@ -78,7 +79,7 @@ namespace Space_Game
                         {
                             Console.Clear();
                             Console.SetCursorPosition(10, 10);
-                            Console.WriteLine($" Sory {Global.name}, the transaction wasn't processed");
+                            Console.WriteLine($"SSory {Global.name}, the transaction wasn't processed");
                         }
                         //Console.Clear();
                         //Console.ResetColor();
@@ -116,19 +117,30 @@ namespace Space_Game
             PrintAnimation("Developers: Luke, Rob, Shod");
             Console.SetCursorPosition(25, 20);
             PrintAnimation($"{Global.name}, please select an action by pressing a key from the menu below.");
+            sound.MissionImpossible();
 
         }
 
-        public void PrintMenu() //This method print -ItemsPerPage- and Menu
+        public static void PrintMenu(bool isSubMenu=false) //This method print -ItemsPerPage- and Menu
         {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
             Console.SetCursorPosition(0, 26);
             Console.WriteLine(new string('=', 120));
-            Console.Write(" F1. Travel");
-            Console.Write(" || F2. Buy");
-            Console.Write(" || F3. Sell");
-            Console.Write(" || F4. Refuel");
-            Console.Write(" || F5. About");
-            Console.WriteLine(" || F12. Exit");
+            if (isSubMenu)
+            {
+                Console.Write("\u2193 Down");
+                Console.Write($" || \u2191 Up");
+                Console.WriteLine(" || Esc. Abort".PadRight(119, ' '));
+            }               
+                else
+            {
+                Console.Write(" F1. Travel");
+                Console.Write(" || F2. Buy");
+                Console.Write(" || F3. Sell");
+                Console.Write(" || F4. Refuel");
+                Console.Write(" || F5. About");
+                Console.WriteLine(" || F12. Exit");
+            }   
             Console.WriteLine(new string('=', 120));
         }
 
