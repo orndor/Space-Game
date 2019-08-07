@@ -130,7 +130,7 @@ namespace Space_Game
             {
                 Console.Write("\u2193 Down");
                 Console.Write($" || \u2191 Up");
-                Console.WriteLine(" || Esc. Abort".PadRight(119, ' '));
+                Console.WriteLine(" || Esc. Abort".PadRight(105, ' '));
             }               
                 else
             {
