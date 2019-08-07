@@ -21,17 +21,13 @@ namespace Space_Game
 
         public static void BowserCutscene()
         {
-            // How to call Bowser from wherever
-            /*
-             * Console.ResetColor();
-                        Console.SetCursorPosition(0, 0);
-                        for (int i = 0; i < 29; i++)
-                        {
-                            Console.WriteLine(new string(' ', 120));
-                        }
-                        Console.SetCursorPosition(0, 0);
-                        Cutscenes.BowserCutscene();
-             */
+            Console.ResetColor();
+            Console.SetCursorPosition(0, 0);
+            for (int i = 0; i < 29; i++)
+            {
+                Console.WriteLine(new string(' ', 120));
+            }
+            Console.SetCursorPosition(0, 0);
             Menu.ClearMenuArea();
             string path = Path.Combine(Directory.GetCurrentDirectory(), "..\\..\\..\\..\\images/Bowser.bmp");
             Bitmap bmpSrc = new Bitmap(path, true);

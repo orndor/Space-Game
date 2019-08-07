@@ -14,13 +14,6 @@ namespace Space_Game
 
             if (randomNumber == 4)
             {
-                Console.ResetColor();
-                Console.SetCursorPosition(0, 0);
-                for (int i = 0; i < 29; i++)
-                {
-                    Console.WriteLine(new string(' ', 120));
-                }
-                Console.SetCursorPosition(0, 0);
                 Cutscenes.BowserCutscene();
                 Menu.ClearMenuArea();
                 Console.SetCursorPosition(4, 10);
@@ -28,7 +21,8 @@ namespace Space_Game
                 Console.SetCursorPosition(4, 12);
                 Console.WriteLine($"Luckily, you escaped with your life.");
                 Console.SetCursorPosition(6, 20);
-                Console.WriteLine($"{Global.name}, please select an action by pressing a key from the menu below."); 
+                Console.WriteLine("Press the Space Bar to Continue.");
+                while (Console.ReadKey(true).Key != ConsoleKey.Spacebar) ;
 
                 //variables to hold the number of each item in the inventory
                 int numOfGold = 0;

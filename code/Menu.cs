@@ -40,7 +40,6 @@ namespace Space_Game
                 {
                     case ConsoleKey.F1://travel
                         spaceship.Travel(inventories);
-                        SpacePirate.RobbedBySpacePirate(inventories);
                         App.PrintSideBottomMenu(inventories, spaceship);
                         //Cutscenes.DoIt();
                         PrintMenu();
@@ -130,7 +129,7 @@ namespace Space_Game
             {
                 Console.Write("\u2193 Down");
                 Console.Write($" || \u2191 Up");
-                Console.WriteLine(" || Esc. Abort".PadRight(119, ' '));
+                Console.WriteLine(" || Esc. Abort".PadRight(105, ' '));
             }               
                 else
             {
