@@ -13,11 +13,15 @@ namespace Space_Game
 
             if (randomNumber == 4)
             {
+                Cutscenes.BowserCutscene();
                 Menu.ClearMenuArea();
                 Console.SetCursorPosition(4, 10);
                 Console.WriteLine($"You've been robbed by space pirates on your way to {Planet.GetPlanetName(Global.currentPlanet)} and lost half of your precious inventory!!!");
                 Console.SetCursorPosition(4, 12);
                 Console.WriteLine($"Luckily, you escaped with your life.");
+                Console.SetCursorPosition(6, 20);
+                Console.WriteLine($"{Global.name}, please select an action by pressing a key from the menu below."); 
+
                 //variables to hold the number of each item in the inventory
                 int numOfGold = 0;
                 int numOfwater = 0;

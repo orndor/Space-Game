@@ -16,7 +16,7 @@ namespace Space_Game
 
             ClearMenuArea();
 
-            // OpenAndEndCredits.OpeningCredits();
+            //OpenAndEndCredits.OpeningCredits();
 
             ClearMenuArea();
 
@@ -39,8 +39,8 @@ namespace Space_Game
                 switch (consoleKeyInfo.Key)
                 {
                     case ConsoleKey.F1://travel
-
                         spaceship.Travel();
+                        SpacePirate.RobbedBySpacePirate(inventories);
                         App.PrintSideBottomMenu(inventories, spaceship);
                         //Cutscenes.DoIt();
                         PrintMenu();
