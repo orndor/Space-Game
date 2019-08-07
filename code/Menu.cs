@@ -56,7 +56,7 @@ namespace Space_Game
                             //ClearMenuArea();
                             Console.Clear();
                             Console.SetCursorPosition(25, 10);
-                            Console.WriteLine($" SSorry {Global.name}, the transaction wasn't processed");                           
+                            Console.WriteLine("Sorry, the transaction was not processed");                           
                         }
                         
                         //Console.ResetColor();
@@ -141,6 +141,7 @@ namespace Space_Game
                 Console.WriteLine(" || F12. Exit");
             }   
             Console.WriteLine(new string('=', 120));
+            
         }
 
         void Welcome(List<Product> inventories, Spaceship userSpaceship)
@@ -168,7 +169,7 @@ namespace Space_Game
         {
             Console.ResetColor();
             Console.SetCursorPosition(0, 0);
-            for (int i = 0; i < 26; i++)
+            for (int i = 0; i < 30; i++)
             {
                 Console.WriteLine(new string(' ', 120));
             }
