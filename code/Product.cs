@@ -29,7 +29,7 @@ namespace Space_Game
             products.Add(new Product() { ProductName = "Light Bulbs", Price = 20, Planet = 1 });
             products.Add(new Product() { ProductName = "Light Bulbs", Price = 5, Planet = 2 });
             products.Add(new Product() { ProductName = "Light Bulbs", Price = 100, Planet = 3 });
-            products.Add(new Product() { ProductName = "The Heart of Gold Spaceship", Price = 2000, Planet = 1 });
+            products.Add(new Product() { ProductName = "The Heart of Gold Spaceship", Price = 5000, Planet = 1 });
         }
     }
 }
