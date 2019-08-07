@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 
 namespace Space_Game
 {
@@ -13,6 +14,13 @@ namespace Space_Game
 
             if (randomNumber == 4)
             {
+                Console.ResetColor();
+                Console.SetCursorPosition(0, 0);
+                for (int i = 0; i < 29; i++)
+                {
+                    Console.WriteLine(new string(' ', 120));
+                }
+                Console.SetCursorPosition(0, 0);
                 Cutscenes.BowserCutscene();
                 Menu.ClearMenuArea();
                 Console.SetCursorPosition(4, 10);
