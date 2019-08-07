@@ -40,7 +40,6 @@ namespace Space_Game
                 {
                     case ConsoleKey.F1://travel
                         spaceship.Travel(inventories);
-                        SpacePirate.RobbedBySpacePirate(inventories);
                         App.PrintSideBottomMenu(inventories, spaceship);
                         //Cutscenes.DoIt();
                         PrintMenu();

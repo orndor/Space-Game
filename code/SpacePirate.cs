@@ -21,7 +21,8 @@ namespace Space_Game
                 Console.SetCursorPosition(4, 12);
                 Console.WriteLine($"Luckily, you escaped with your life.");
                 Console.SetCursorPosition(6, 20);
-                Console.WriteLine($"{Global.name}, please select an action by pressing a key from the menu below."); 
+                Console.WriteLine("Press the Space Bar to Continue.");
+                while (Console.ReadKey(true).Key != ConsoleKey.Spacebar) ;
 
                 //variables to hold the number of each item in the inventory
                 int numOfGold = 0;
