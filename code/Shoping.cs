@@ -53,8 +53,10 @@ namespace Space_Game
             else
             {
                 menuList.Clear();
-                Menu.PrintMenu(true);
+                
                 Menu.ClearMenuArea();
+                Menu.PrintMenu(true);
+                Console.SetCursorPosition(0, 0);
                 foreach (var item in inventory)
                 {
                     item.Price = FindPrice(item).Price;
@@ -69,9 +71,10 @@ namespace Space_Game
         public bool PrintBuyList(List<Product> inventory)
         {
             menuList.Clear();
-            Menu.PrintMenu(true);
-            Menu.ClearMenuArea();
             
+            Menu.ClearMenuArea();
+            Menu.PrintMenu(true);
+            Console.SetCursorPosition(0, 0);
             foreach (var item in market)
             {
                     if (item.Planet==Global.currentPlanet)
