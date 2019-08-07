@@ -164,7 +164,7 @@ namespace Space_Game
             else
             {
                 Menu.ClearMenuArea();
-                Console.WriteLine("...");
+                Console.WriteLine("");
                 return 1.0;
             }
         }
@@ -179,11 +179,13 @@ namespace Space_Game
                     return 1.0;
                 case 3:
                     return 1.5;
+                default:
+                    Menu.ClearMenuArea();
+                    Console.WriteLine("");
+                    return 1.0;
 
             }
-            Menu.ClearMenuArea();
-            Console.WriteLine("...");
-            return 1.0;
+           
         }
 
         public override string ToString()
