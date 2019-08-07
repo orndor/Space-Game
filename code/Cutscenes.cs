@@ -33,7 +33,7 @@ namespace Space_Game
             Bitmap bmpSrc = new Bitmap(path, true);
             Console.SetCursorPosition(0,0);
             ConsoleWriteImage4(bmpSrc);
-            Thread.Sleep(1000);
+            Thread.Sleep(4000);
         }
         public static void EarthCutScene()
         {

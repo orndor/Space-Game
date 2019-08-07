@@ -39,8 +39,7 @@ namespace Space_Game
                 switch (consoleKeyInfo.Key)
                 {
                     case ConsoleKey.F1://travel
-                        spaceship.Travel();
-                        SpacePirate.RobbedBySpacePirate(inventories);
+                        spaceship.Travel(inventories);
                         App.PrintSideBottomMenu(inventories, spaceship);
                         //Cutscenes.DoIt();
                         PrintMenu();
