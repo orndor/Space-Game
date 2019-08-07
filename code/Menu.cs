@@ -79,7 +79,7 @@ namespace Space_Game
                         {
                             Console.Clear();
                             Console.SetCursorPosition(10, 10);
-                            Console.WriteLine($" Sory {Global.name}, the transaction wasn't processed");
+                            Console.WriteLine($"SSory {Global.name}, the transaction wasn't processed");
                         }
                         //Console.Clear();
                         //Console.ResetColor();
