@@ -55,8 +55,9 @@ namespace Space_Game
             Console.WriteLine($"{Global.name}, please select an action by pressing a key from the menu below.");
         }
 
-        public void Travel() //change current position
+        public void Travel(List<Product> inventories) //change current position
         {
+            bool fuelTravel = true;
             Menu.PrintMenu(true);
             int travelPlanet = Navigation().PlanetNum;
             
@@ -66,65 +67,82 @@ namespace Space_Game
                 Global.gas -= Convert.ToInt32(EarthToPC1 * travelMultiplier);
                 if(Global.gas < 0)
                 {
+                    fuelTravel = false;
                     Menu.ClearMenuArea();
                     Global.gas = temp;
                     Console.SetCursorPosition(35, 10);
                     Console.WriteLine("Not enough Gas to travel...");
                     Console.SetCursorPosition(25, 13);
                     Console.WriteLine($"{Global.name}, please select an action by pressing a key from the menu below.");
-                    return;
                 }
-                Global.age = Convert.ToByte(Global.age + EarthToPC1 / WarpFactor);
-                Global.currentPlanet = Convert.ToByte(travelPlanet);
+                else
+                {
+                    Global.age = Convert.ToByte(Global.age + EarthToPC1 / WarpFactor);
+                    Global.currentPlanet = Convert.ToByte(travelPlanet);
+                }
+                
             }
             if (Global.currentPlanet == 1 && travelPlanet == 3 || Global.currentPlanet == 3 && travelPlanet == 1)
             {
                 Global.gas -= Convert.ToInt32(EarthToBernard * travelMultiplier);
                 if (Global.gas < 0)
                 {
+                    fuelTravel = false;
                     Menu.ClearMenuArea();
                     Global.gas = temp;
                     Console.SetCursorPosition(35, 10);
                     Console.WriteLine("Not enough Gas to travel...");
                     Console.SetCursorPosition(25, 13);
                     Console.WriteLine($"{Global.name}, please select an action by pressing a key from the menu below.");
-                    return;
                 }
-                byte age = Convert.ToByte(Global.age + EarthToBernard / WarpFactor);
-                Global.age = age;
-                Global.currentPlanet = Convert.ToByte(travelPlanet);
+                else
+                {
+                    byte age = Convert.ToByte(Global.age + EarthToBernard / WarpFactor);
+                    Global.age = age;
+                    Global.currentPlanet = Convert.ToByte(travelPlanet);
+                }
+                
             }
             if (Global.currentPlanet == 2 && travelPlanet == 3 || Global.currentPlanet == 3 && travelPlanet == 2)
             {
                 Global.gas -= Convert.ToInt32(PC1ToBernard * travelMultiplier);
                 if (Global.gas < 0)
                 {
+                    fuelTravel = false;
                     Menu.ClearMenuArea();
                     Global.gas = temp;
                     Console.SetCursorPosition(35, 10);
                     Console.WriteLine("Not enough Gas to travel...");
                     Console.SetCursorPosition(25, 13);
                     Console.WriteLine($"{Global.name}, please select an action by pressing a key from the menu below.");
-                    return;
                 }
-                byte age = Convert.ToByte(Global.age + PC1ToBernard / WarpFactor);
-                Global.age = age;
-                Global.currentPlanet = Convert.ToByte(travelPlanet);
+                else
+                {
+                    byte age = Convert.ToByte(Global.age + PC1ToBernard / WarpFactor);
+                    Global.age = age;
+                    Global.currentPlanet = Convert.ToByte(travelPlanet);
+                }
             }
-
-            if(travelPlanet == 1)
+            if (fuelTravel == false)
             {
-                Cutscenes.EarthCutScene();
+                return;
             }
-            else if(travelPlanet == 2)
+            else
             {
-                Cutscenes.ProximaCutscene();
+                SpacePirate.RobbedBySpacePirate(inventories);
+                if (travelPlanet == 1)
+                {
+                    Cutscenes.EarthCutScene();
+                }
+                else if (travelPlanet == 2)
+                {
+                    Cutscenes.ProximaCutscene();
+                }
+                else if (travelPlanet == 3)
+                {
+                    Cutscenes.BarnardCutscene();
+                }
             }
-            else if(travelPlanet == 3)
-            {
-                Cutscenes.BarnardCutscene();
-            }
-
             return;
            
         }
