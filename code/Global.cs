@@ -10,7 +10,7 @@ namespace Space_Game
         static public byte currentPlanet = 1;
         static public byte age = 18;
         static public string name="Player";
-        static public byte origin = 0;
+        static public byte origin = 2;
         static public int gas = 100;
     }
 }
